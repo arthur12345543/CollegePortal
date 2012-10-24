@@ -1,0 +1,93 @@
+/*
+	Mean style of Portal  
+*/
+html{
+	padding: 10px;
+	font-style: italic;
+	height: 100%;
+	background: #F5F5F5;
+	color: #111111;
+}
+
+#wrapper{
+	width: 100%;
+}
+
+#header{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 5px; 
+}
+
+#menuLink{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 5px;
+	border: solid 1px #A9A9A9;
+}
+
+#content{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+#footer{
+	width: 100%;
+	border: solid 1px #A9A9A9;
+	margin-bottom: 5px;
+	padding: 5px;
+
+	border-radius: 10px; 
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+}
+
+
+/*
+	Child selectors
+*/
+#titleOfCollege{
+	width: 45%;
+	float: left;
+	font-size: 25px;
+	color: #4169E1;
+}
+
+#linkHeaderBar{
+	width: 30%;
+	float: right;
+}
+
+#menuLinkList{
+	list-style: none;
+}
+
+#menuLinkList li{
+	display: inline-block;
+	margin-left: 2%;
+	margin-right: 2%;
+	height: 100%;
+}
+
+/*
+	Links's style
+*/
+a{
+	text-decoration: none;
+	color: #A9A9A9;
+	border: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #4169E1;
+	border: none;
+}
+
+a:active{
+	text-decoration: none;
+	color: #4169E1;
+	border: none;
+}

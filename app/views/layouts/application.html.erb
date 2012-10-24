@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @TitleOfPage %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <!-- Don't remove this section!!! -->
+  		<!-- Arthur Yakovlev Asgard 2012 -->
+  		<!-- http://www.allcomputers.16mb.com/ -->
+  <!-- End -->
+  
+  <script type="text/javascript">
+
+  </script>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+
+		<div id="titleOfCollege">
+			Kharkiv Computer and Technology College
+		</div>
+
+		<div id="linkHeaderBar">
+			<a href="">Вход</a>
+			&nbsp;&nbsp;
+			<a href="">Регистрация</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="">en</a>
+			<a href="">ru</a>
+			<a href="">ua</a>
+		</div>
+
+		<div style="clear: both;"></div>
+
+	</div>
+
+	<div id="menuLink">
+
+		<center>
+		<ul id="menuLinkList">
+			<li><%= link_to "Главная",            root_path %></li>
+			<li><%= link_to "Новости", 			  news_url %></li>
+			<li><%= link_to "Афиша", 			  showbill_url %></li>
+			<li><%= link_to "Форум", 			  forum_url %></li>
+			<li><%= link_to "Фотогалерея",        fotogalerely_url %></li>
+			<li><%= link_to "Абитуриентам",       toabiturince_url %></li>
+			<li><%= link_to "Файловое хранилище", filestorage_url %></li>
+		</ul>
+		</center>
+
+	</div>
+
+	<div id="content">
+		<center>
+			This is stena
+		</center>
+		<%= yield %> 
+	</div>
+
+	<div id="footer">
+		<center>
+			2012<br/>
+			Эдуард Рубин, Павел Обод, <a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>, Никита Грицюк,<br/> Сергей Бугаенко, Богдан Шкляр, Андрей Медведенко, 
+			Олег Пащенко, Алексей Тарасов.
+			
+		</center>	
+	</div>
+
+</div>
+
+</body>
+</html>
