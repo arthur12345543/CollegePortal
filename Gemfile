@@ -18,6 +18,14 @@ group :development do
  gem 'sqlite3'
 end
 
+gem 'execjs'
+gem 'therubyracer'
+
+group :assets do
+  gem 'uglifier'
+end
+
+
 gem 'json'
 
 # Gems used only for assets and not required
