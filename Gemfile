@@ -21,9 +21,6 @@ end
 gem 'execjs'
 gem 'therubyracer'
 
-group :assets do
-  gem 'uglifier'
-end
 
 
 gem 'json'
