@@ -1,11 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.0.9'
+
+gem 'sqlite3', '1.3.6', :group => :development
+
+
+#gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
 gem 'json'
 
@@ -22,6 +27,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
