@@ -12,7 +12,9 @@ gem 'rails', '3.2.8'
 
 
 #gem 'sqlite3'
-gem 'pg'
+group :production do
+  gem 'pg'
+end
 #gem 'taps'
 
 gem 'json'
