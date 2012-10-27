@@ -2,7 +2,7 @@
 	Mean style of Portal  
 */
 html{
-	padding: 10px;
+	padding: 15px;
 	font-style: italic;
 	height: 100%;
 	background: #F5F5F5;
@@ -72,6 +72,25 @@ html{
 }
 
 /*
+	button's style
+*/
+
+input{
+	color: #A9A9A9;
+	border: solid 1px #A9A9A9;
+}
+
+input:active{
+	color: #4169E1;
+	border: solid 1px #A9A9A9;
+}
+
+input:hover{
+	color: #4169E1;
+	border: solid 1px #A9A9A9;
+}
+
+/*
 	Links's style
 */
 a{
@@ -91,3 +110,66 @@ a:active{
 	color: #4169E1;
 	border: none;
 }
+
+
+/*
+	Style for home page
+*/
+#photoSlideShow{
+	padding: 5px;
+	width: 100%;
+	border-bottom: solid 1px #A9A9A9;
+}
+
+#photoWrapper{
+
+}
+
+#photoTable{
+	vertical-align: middle;
+}
+
+#photoNext{
+	font-size: 30px;
+}
+
+#photoPhoto{
+	text-align: center;
+	border: solid 1px #A9A9A9;
+	width: 800px;
+	height: 350px;
+}
+
+#homeContent{
+	width: 100%;
+	border: solid 1px #A9A9A9;
+
+	border-radius: 10px; 
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-khtml-border-radius: 10px;
+
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px; 
+}
+
+#homeNews{
+	width: 100%;
+}
+
+#homeNewsShowbill{
+	width: 100%;
+}
+
+#homeTitleNews{
+	background: #A9A9A9;
+	color: #fff; 
+	text-align: center;
+}
+
+#homeNewsBlock td{
+	border: solid 1px #A9A9A9;
+	vertical-align: top; 
+}
+

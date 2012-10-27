@@ -35,6 +35,14 @@
 			<a href="">en</a>
 			<a href="">ru</a>
 			<a href="">ua</a>
+
+			<br/>
+			<br/>
+			<div id="homeSearch"> 
+				<input type="text" value="Введите текст для поиска" onfocus="this.value='';" onblur="if (this.value != '') {this.onfocus = function(){};} else this.value='Введите текст для поиска';"
+				style="width: 200px;"/>
+				<input type="button" value="Найти">
+			</div>
 		</div>
 
 		<div style="clear: both;"></div>
@@ -58,9 +66,6 @@
 	</div>
 
 	<div id="content">
-		<center>
-			This is stena
-		</center>
 		<%= yield %> 
 	</div>
 

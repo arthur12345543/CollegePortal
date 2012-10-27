@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function showNews()
+{
+	document.getElementById('homeNewsShowbill').style.display = "none";
+	document.getElementById('homeNews').style.display = "inline-block";
+}
+
+function showBill()
+{
+	document.getElementById('homeNews').style.display = "none";
+	document.getElementById('homeNewsShowbill').style.display = "inline-block";
+}
