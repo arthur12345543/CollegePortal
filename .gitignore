@@ -13,15 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-#В книге написано можно сделать так:
-#/.bundle
-#/db/*.sqlite3*
-#/log/*.log
-#/*.log
-#/tmp/
-#/doc/
-#/*.swp
-#/*~
-#/.project
-#/.DS_Store
+
+
 #P.S. здесь был Медведь :)
