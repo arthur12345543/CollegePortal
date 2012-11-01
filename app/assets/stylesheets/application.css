@@ -3,7 +3,8 @@
 */
 html{
 	padding: 15px;
-	font-style: italic;
+	font-family: Arial, sans-serif;
+	font-style: normal;
 	height: 100%;
 	background: #F5F5F5;
 	color: #111111;
