@@ -146,10 +146,55 @@ Heroku
 
 	$ git push -u hithub master
 
+											Как переписывать origin
 
+	$ git remote -v                      # можно, даже нужно заценить 
+	 
+	$ git remote rm origin
 
+	$ git remote add origin git@github.com:arthur12345543/CollegePortal.git
 
+		or such as this one
 
+	$ git remote add origin git@github.com:your's login/Application name.git
 
+											Как установить права на файл
+
+	$ sudo chmod 777 .git/objects
+	$ sudo chmod -R 0777 .git/objects
+	$ sudo chown -R asgard .git               # установить полные права для юзера
+
+		or such as this one
+
+	$ sudo chmod 777 file
+
+	$ sudo chown -R user .git
+
+											Как выкачать репозиторий
+
+Сперва мне пришлось установить полные права для своего пользователя, ну, конечно, три часа до этого я боролся с ошибками.
+
+	$ sudo chown -R asgard .git     # replace asgard to your user
+
+Далее, выполняем команду с помощью которой узнаем свою ветку
+
+	$ git branch -a
+
+Ответ у меня такой
+
+		* master
+  		remotes/origin/master
+
+  	$ git pull origin master
+
+Пока что у меня новая ошибка.
+
+Во-первых приходится делать права для некоторых файлов лично.
+
+	$ sudo chmod -R 0777 .gitignore
+
+Пришлось так сделать. Была ошибка.
+
+	
 
 
