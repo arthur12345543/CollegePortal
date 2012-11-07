@@ -1,0 +1,7 @@
+<div>
+Новости
+<%= link_to 'Создать', new_news_path %>
+<% @news.each do |n| %>
+  <%= image_tag n.picture %>
+<% end %>
+</div>
