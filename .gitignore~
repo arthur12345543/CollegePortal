@@ -6,7 +6,7 @@
 
 # Ignore bundler config
 /.bundle
-
+.rvmrc
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
@@ -17,5 +17,5 @@
 # Здесь был Артур
 # Оксана тоже тут была :)
 # Спасибо Оксана
-
 # Здесь был Медведь! :))
+# Никита был таки тоже
