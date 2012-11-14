@@ -27,9 +27,18 @@
 		</div>
 
 		<div id="linkHeaderBar">
-			<a href="">Вход</a>
+			<% if user_signed_in? %>
+			<%= current_user.email %>
 			&nbsp;&nbsp;
-			<a href="">Регистрация</a>
+			<%=link_to 'Выйти', "sign_out"%>
+			<% else %>
+			<%=link_to 'Войти', "log_in"%>
+			&nbsp;&nbsp;
+			<%=link_to 'Регистрация', "sign_up"%>
+			
+			
+			<%end%>
+			&nbsp;&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="">en</a>
