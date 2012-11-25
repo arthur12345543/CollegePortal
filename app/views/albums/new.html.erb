@@ -1,0 +1,8 @@
+<center>
+<%= form_for Album.new do |f| %>
+<%= f.label "Название альбома" %>
+<%= f.text_field :title %>
+<%= f.hidden_field :user_id, value: "1" %>
+<%= f.submit 'Создать альбом' %>
+<% end %>
+</center>

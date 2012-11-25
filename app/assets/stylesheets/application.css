@@ -10,6 +10,10 @@ html{
 	color: #111111;
 }
 
+h1{
+	font-size: 20px;
+}
+
 #wrapper{
 	width: 100%;
 }
@@ -175,5 +179,16 @@ a:active{
 #homeNewsBlock td{
 	border: solid 1px #A9A9A9;
 	vertical-align: top; 
+}
+
+/*
+	Style for photogalelery
+*/
+
+#photogaleleryIW{
+	border: solid 1px black; 
+	width: 700px;
+	height: 400px;
+	margin: 0px auto;
 }
 
