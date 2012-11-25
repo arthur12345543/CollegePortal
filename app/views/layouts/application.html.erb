@@ -32,9 +32,9 @@
 			&nbsp;&nbsp;
 			<%=link_to 'Выйти', "sign_out"%>
 			<% else %>
-			<%=link_to 'Войти', "log_in"%>
+			<%=link_to 'Войти', new_user_session_path%>
 			&nbsp;&nbsp;
-			<%=link_to 'Регистрация', "sign_up"%>
+			<%=link_to 'Регистрация', sign_up_path%>
 			
 			
 			<%end%>

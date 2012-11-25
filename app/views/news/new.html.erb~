@@ -1,6 +1,7 @@
 <%= form_for News.new do |f| %>
 Title:<br>
 <%= f.text_field :title  %><br>
+
 Photo:<br>
 <%= f.file_field :picture  %><br>
 Text:<br>

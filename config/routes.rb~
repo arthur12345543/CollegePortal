@@ -1,13 +1,20 @@
 CollegePortal::Application.routes.draw do
 
+  get "albums/index"
+
+  get "albums/new"
+
   devise_for :users
   devise_for :users do 
     get 'sign_out' => 'devise/sessions#destroy'
-    get "login", :to => "devise/sessions#new"
-    get "signup", :to => "devise/registrations#new"
+    get "log_in", :to => "devise/sessions#new"
+    get "sign_up", :to => "devise/registrations#new"
   end
+  delete "posts/:id" => "posts#destroy"
 
   resources :news
+
+  resources :albums
   
   root :to => 'home#index'
 
