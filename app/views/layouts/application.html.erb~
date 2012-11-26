@@ -32,9 +32,9 @@
 			&nbsp;&nbsp;
 			<%=link_to 'Выйти', "sign_out"%>
 			<% else %>
-			<%=link_to 'Войти', "log_in"%>
+			<%=link_to 'Войти', new_user_session_path%>
 			&nbsp;&nbsp;
-			<%=link_to 'Регистрация', "sign_up"%>
+			<%=link_to 'Регистрация', sign_up_path%>
 			
 			
 			<%end%>
@@ -68,7 +68,7 @@
 			<li><%= link_to "Форум", 			  "#" %></li>
 			<li><%= link_to "Фотогалерея",        albums_index_path %></li>
 			<li><%= link_to "Абитуриентам",       "#" %></li>
-			<li><%= link_to "Файловое хранилище", "#" %></li>
+			<li><%= link_to "Файловое хранилище", 			  uploads_path %></li>
 		</ul>
 		</center>
 

@@ -16,6 +16,8 @@ CollegePortal::Application.routes.draw do
 
   resources :albums
   
+  resources :uploads
+  
   root :to => 'home#index'
 
 end

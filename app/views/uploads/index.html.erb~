@@ -1,0 +1,26 @@
+<div>
+Файловое хранилище
+<%= link_to 'Создать', new_upload_path %>
+
+<br>
+<%= will_paginate  %>
+
+<% @files.each do |n| %>
+<table border='0' width='100%' bgcolor="#E6E6FA">
+  <tr  height='20'>
+    <th width='100' ></th>
+    <td><%= link_to n.title, :controller => "uploads",:action => :show, :id => n.id %></td>
+    <th width='100' ></th>
+  </tr>
+  <tr height='20'>
+    <td width='100' ></td>
+    <td>Пост добавлен <%=n.created_at %></td>
+    <td width='100' ></td>
+  </tr>
+</table> 
+<br>
+<% end %>
+<%= will_paginate %>
+
+
+</div>

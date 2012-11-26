@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20121125053916) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "files", :force => true do |t|
-    t.text     "link_to_file"
-    t.integer  "user_id"
-    t.integer  "lesons_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "lessons", :force => true do |t|
     t.text     "tittle"
     t.datetime "created_at", :null => false
@@ -43,6 +35,18 @@ ActiveRecord::Schema.define(:version => 20121125053916) do
     t.datetime "updated_at",           :null => false
     t.string   "title"
     t.text     "text"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.text     "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|
