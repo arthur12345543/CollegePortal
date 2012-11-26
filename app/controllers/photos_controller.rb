@@ -10,6 +10,6 @@ class PhotosController < ApplicationController
 
 	def create
 		@photo = Photo.create(params[:photos])
-		redirect_to albums_index_path
+		redirect_to albums_path
 	end
 end

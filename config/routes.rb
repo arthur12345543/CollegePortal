@@ -8,6 +8,7 @@ CollegePortal::Application.routes.draw do
     get "log_in", :to => "devise/sessions#new"
     get "sign_up", :to => "devise/registrations#new"
   end
+  delete "news/:id" => "news#destroy"
 
   resources :news
 

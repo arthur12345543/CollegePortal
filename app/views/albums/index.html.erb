@@ -17,7 +17,7 @@
 
   	<span style="float: right;">
   	<% if 1==albums.user_id %> 
-    <%= link_to 'Edit', photos_new_path %>
+    <%= link_to 'Edit', new_photo_path %>
     <%= link_to 'Destroy', "#", :confirm => 'Are you sure?',
                                      :method => :delete %>
     <%end%>

@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20121125114939) do
     t.datetime "picture_updated_at"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.string   "title"
+    t.text     "text"
   end
 
   create_table "photos", :force => true do |t|
