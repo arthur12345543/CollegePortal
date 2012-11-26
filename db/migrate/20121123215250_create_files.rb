@@ -5,7 +5,7 @@ class CreateFiles < ActiveRecord::Migration
       t.integer :user_id,:maximum=>100
       t.integer :lesons_id,:maximum=>100
 
-      t.timestamps :maximum=>100
+      t.timestamps[00:10:12 EEST] Oksana Dushenkovskaya: ну модели - то ладно, именно миграции?
     end
   end
 end
