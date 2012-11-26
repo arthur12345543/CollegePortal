@@ -1,8 +1,6 @@
 CollegePortal::Application.routes.draw do
 
-  get "albums/index"
 
-  get "albums/new"
 
   devise_for :users
   devise_for :users do 
@@ -15,6 +13,8 @@ CollegePortal::Application.routes.draw do
   resources :news
 
   resources :albums
+
+  resources :photos
   
   resources :uploads
   

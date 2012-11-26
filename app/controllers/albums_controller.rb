@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-	@news = Album.create(params[:album])
-	redirect_to albums_index_path
+	  @news = Album.create(params[:album])
+	  redirect_to albums_index_path
   end
 end

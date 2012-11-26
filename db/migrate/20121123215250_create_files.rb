@@ -5,7 +5,7 @@ class CreateFiles < ActiveRecord::Migration
       t.integer :user_id,:maximum=>100
       t.integer :lesons_id,:maximum=>100
 
-      t.timestamps :maximum=>100
+      t.timestamps
     end
   end
 end

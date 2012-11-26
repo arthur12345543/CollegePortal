@@ -1,0 +1,22 @@
+<%= form_for Photo.new do |f| %>
+
+<table>
+<tr>
+<td><%= f.label "Описание фотографии" %></td>
+<td><%= f.text_area :description %></td>
+</tr>
+<%= f.hidden_field :id_albums, value: "1" %>
+
+<tr>
+<td></td>
+<td><%= f.file_field :picture %></td>
+</tr>
+
+
+<tr>
+<td></td>
+<td><%= f.submit 'Сохранить' %></td>
+</tr>
+
+</table>
+<% end %>

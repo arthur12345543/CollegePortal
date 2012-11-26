@@ -10,29 +10,19 @@
 
 </div>
 
-
-<h1><center><a href="" target="_blank">Название альбома</a></center></h1>
-<div id="photogaleleryIW">
-	<img src="" id="photogaleleryI" />
-</div>
-
-
-
-<h1>Listing posts</h1>
  
-<table>
  
 <% @albums.each do |albums| %>
-  <tr>
-  	<td><%= albums.id %></td>
-    <td><%= albums.title %></td>
-    <td><%= albums.user_id %></td>
-    <td><%= link_to 'Show', albums %></td>
-    <td><%= link_to 'Edit', "#" %></td>
-    <td><%= link_to 'Destroy', "#", :confirm => 'Are you sure?',
-                                     :method => :delete %></td>
-  </tr>
+  	<h1><center><td><%= link_to albums.title, albums %></td></center></h1>
+
+  	<span style="float: right;">
+  	<% if 1==albums.user_id %> 
+    <%= link_to 'Edit', new_photo_path %>
+    <%= link_to 'Destroy', "#", :confirm => 'Are you sure?',
+                                     :method => :delete %>
+    <%end%>
+    </span>
+	<div id="photogaleleryIW">
+		<img src="" id="photogaleleryI" />
+	</div>
 <% end %>
-</table>
- 
-<br />
