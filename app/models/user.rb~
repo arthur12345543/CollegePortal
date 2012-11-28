@@ -6,8 +6,28 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :status, :email, :password, :password_confirmation, :phone, :country, :city,:about, :remember_me, :surname
+  attr_accessible :name, :surname, :status, :email, :password, :password_confirmation, :phone, :country, :city,:about, :remember_me,
+ :character_type, :character, :character_attributes
 
-  validates :name, presence: true
+
+ 
+
+
+ validates_presence_of  :name
+ #validates_inclusion_of :character_type, :in => %w(Customer Executive)
+   # Associations
+ belongs_to :character, :polymorphic => true, :dependent => :destroy
   # attr_accessible :title, :body
+
+
+ accepts_nested_attributes_for :character
+
+
+ def student?
+    character_type == "Customer"
+ end
+ 
+ def teacher?
+    character_type == "Executive"
+ end
 end

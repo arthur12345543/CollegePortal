@@ -1,12 +1,14 @@
 <table border='0' width='100%' bgcolor="#E6E6FA">
   <tr  height='20'>
     <th width='100' ></th>
-    <td><%= @Uploads.title%></td>
+    
+    <td><%= link_to 'a', "http://0.0.0.0:3000"@Upload.file.url %> 
+   </td>
     <th width='100' ></th>
   </tr>
   <tr height='20'>
     <td width='100' ></td>
-    <td><%= link_to 'Destroy', { :action => :destroy, :id => @Uploads.id }, :method => :delete, :confirm => 'Are you sure?' %></td>
+    <td><%= link_to 'Destroy', { :action => :destroy, :id => @Upload.id }, :method => :delete, :confirm => 'Are you sure?' %></td>
     <td width='100' ></td>
   </tr>
 </table> 

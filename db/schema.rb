@@ -11,21 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125053916) do
+ActiveRecord::Schema.define(:version => 20121128135530) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "files", :force => true do |t|
-    t.text     "link_to_file"
-    t.integer  "user_id"
-    t.integer  "lesons_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
 
   create_table "lessons", :force => true do |t|
@@ -43,6 +35,29 @@ ActiveRecord::Schema.define(:version => 20121125053916) do
     t.datetime "updated_at",           :null => false
     t.string   "title"
     t.text     "text"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.text     "description"
+    t.integer  "id_albums"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.text     "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -65,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20121125053916) do
     t.string   "city"
     t.string   "about"
     t.string   "surname"
+    t.integer  "character_id"
+    t.string   "character_type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

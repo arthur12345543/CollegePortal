@@ -8,11 +8,8 @@ class UploadsController < ApplicationController
 	end
 
 	def create
-		@upload = Upload.create(params[:news])
+		@upload = Upload.create(params[:upload])
 		redirect_to uploads_path
-	end
-	def show
-		@Upload = Upload.find(params[:id])
 	end
 	def destroy
 	@Upload = Upload.find(params[:id])
