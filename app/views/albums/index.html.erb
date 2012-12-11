@@ -2,7 +2,7 @@
 
 
 <% if user_signed_in? %>
-	<%= link_to "Создать альбом", new_albums_path %>	
+	<%= link_to "Создать альбом", new_album_path %>	
 <% else %>
 	Для того чтобы создать альбом вам необходимо зайти на сайт
 <%end%>
@@ -16,8 +16,8 @@
   	<h1><center><td><%= link_to albums.title, albums %></td></center></h1>
 
   	<span style="float: right;">
-  	<% if 1==albums.user_id %> 
-    <%= link_to 'Edit', new_photo_path %>
+  	<% if current_user.id==albums.user_id %> 
+    <%= link_to 'Edit', new_photo_path(:album_id => albums.id) %>
     <%= link_to 'Destroy', "#", :confirm => 'Are you sure?',
                                      :method => :delete %>
     <%end%>
