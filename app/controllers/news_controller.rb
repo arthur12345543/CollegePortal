@@ -8,8 +8,13 @@ class NewsController < ApplicationController
 	end
 
 	def create
-		@news = News.create(params[:news])
-		redirect_to news_index_path
+		@news = News.new(params[:news])
+		if @news.save
+		  redirect_to news_index_path
+		else
+		  render :action => :new
+		end
+
 	end
 	def show
 		@News = News.find(params[:id])

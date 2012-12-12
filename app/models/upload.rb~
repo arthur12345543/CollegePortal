@@ -1,5 +1,5 @@
 class Upload < ActiveRecord::Base
-  attr_accessible :file, :title, :link_to_file, :lesons_id, :user_id
+  attr_accessible :file, :title, :lesons_id, :user_id
   has_attached_file :file
 
 #, :content_type => "archive/*", :size => { :in => 10..100000.kilobytes }
