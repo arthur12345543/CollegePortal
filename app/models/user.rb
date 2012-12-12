@@ -9,5 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :surname, :status, :email, :password, :password_confirmation, :phone, :country, :city,:about, :remember_me
 
   validates :name, presence: true
+
+  belongs_to :userable, :polymorphic => true
   # attr_accessible :title, :body
 end
