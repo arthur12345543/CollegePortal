@@ -28,6 +28,9 @@
 
 		<div id="linkHeaderBar">
 			<% if user_signed_in? %>
+			<% if current_user.userable_type==nil %>
+			<%=link_to 'Укажите тип пользователя!',  :controller => "users", :action => "set_role" %>
+			<% end %>
 			<%= current_user.email %>
 			&nbsp;&nbsp;
 			<%=link_to 'Выйти', "sign_out"%>
@@ -35,6 +38,7 @@
 			<%=link_to 'Войти', new_user_session_path%>
 			&nbsp;&nbsp;
 			<%=link_to 'Регистрация', sign_up_path%>
+			
 			
 			
 			<%end%>

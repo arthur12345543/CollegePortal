@@ -28,6 +28,9 @@
 
 		<div id="linkHeaderBar">
 			<% if user_signed_in? %>
+			<% if current_user.userable_type==nil %>
+			<%=link_to 'Укажите тип пользователя!',  :controller => "users", :action => "set_role" %>
+			<% end %>
 			<%= current_user.email %>
 			&nbsp;&nbsp;
 			<%=link_to 'Выйти', "sign_out"%>
@@ -35,6 +38,7 @@
 			<%=link_to 'Войти', new_user_session_path%>
 			&nbsp;&nbsp;
 			<%=link_to 'Регистрация', sign_up_path%>
+			
 			
 			
 			<%end%>
@@ -66,7 +70,7 @@
 			<li><%= link_to "Новости", 			  news_index_path %></li>
 			<li><%= link_to "Афиша", 			  "#" %></li>
 			<li><%= link_to "Форум", 			  "#" %></li>
-			<li><%= link_to "Фотогалерея",        albums_index_path %></li>
+			<li><%= link_to "Фотогалерея",        albums_path %></li>
 			<li><%= link_to "Абитуриентам",       "#" %></li>
 			<li><%= link_to "Файловое хранилище", 			  uploads_path %></li>
 		</ul>

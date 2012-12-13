@@ -9,7 +9,11 @@ CollegePortal::Application.routes.draw do
     get "sign_up", :to => "devise/registrations#new"
   end
   delete "news/:id" => "news#destroy"
-
+  
+  get "users/set_role"
+  get "users/set_teacher"
+  get "users/set_student"
+   
   resources :news
 
   resources :albums
@@ -19,5 +23,6 @@ CollegePortal::Application.routes.draw do
   resources :uploads
   
   root :to => 'home#index'
+
 
 end

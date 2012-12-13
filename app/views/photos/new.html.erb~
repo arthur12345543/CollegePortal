@@ -12,6 +12,7 @@
 <td><%= f.file_field :picture %></td>
 </tr>
 
+
 <tr>
 <td></td>
 <td><%= f.submit 'Сохранить' %></td>
