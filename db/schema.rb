@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20121212160718) do
   create_table "students", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "group"
+    t.string   "lessons"
   end
 
   create_table "teachers", :force => true do |t|
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(:version => 20121212160718) do
     t.string   "lessons"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "users", :force => true do |t|

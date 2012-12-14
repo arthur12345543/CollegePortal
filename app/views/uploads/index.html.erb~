@@ -3,13 +3,13 @@
 <%= link_to 'Создать', new_upload_path %>
 
 <br>
-<%= will_paginate  %>
+
 
 <% @uploads.each do |n| %>
 <table border='0' width='100%' bgcolor="#E6E6FA">
   <tr  height='20'>
     <th width='100' ></th>
-    <td><%= link_to 'a', n.file.url %> </td>
+    <td><%= link_to n.title, n.file.url %> </td>
     <th width='100' ></th>
   </tr>
   <tr height='20'>
