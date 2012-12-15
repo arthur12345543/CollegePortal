@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
 	def index		
-		@news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 20 )
+		@news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
 	end
 	
 	def new
@@ -16,12 +16,14 @@ class NewsController < ApplicationController
 		end
 
 	end
+
 	def show
 		@News = News.find(params[:id])
 	end
+	
 	def destroy
-	@News = News.find(params[:id])
-	@News.destroy
-	redirect_to :action => :index
+		@News = News.find(params[:id])
+		@News.destroy
+		redirect_to :action => :index
 	end
 end

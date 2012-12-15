@@ -2,7 +2,7 @@
 class AlbumsController < ApplicationController
   def index
   	@TitleOfPage = "Фотогалерея"
-  	@albums = Album.all
+  	@albums = Album.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
   end
 
   def new
@@ -10,7 +10,24 @@ class AlbumsController < ApplicationController
   end
 
   def create
-	  @news = Album.create(params[:album])
-	  redirect_to albums_path
+	  @albums = Album.create(params[:album])
+
+    if @albums.save
+      redirect_to albums_path
+    else
+      render :action => :new
+    end
+
   end
+
+  def show
+    @albums = Album.find(params[:id])
+  end
+
+  def destroy
+    @albums = Album.find(params[:id])
+    @albums.destroy
+    redirect_to :action => :index
+  end
+  
 end
