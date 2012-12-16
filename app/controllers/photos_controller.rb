@@ -1,16 +1,16 @@
 #encoding: utf-8
 class PhotosController < ApplicationController
-	def index
-		
-	end
+  def index
 
-	def new
-		@album_id = params[:album_id]
-		@TitleOfPage = "Загрузить новую фотографию"
-	end
+  end
 
-	def create
-		@photo = Photo.create(params[:photo])
-		redirect_to albums_path
-	end
+  def new
+	@album_id = params[:album_id]
+	@TitleOfPage = "Загрузить новую фотографию"
+  end
+
+  def create
+	@photo = Photo.create(params[:photo])
+    redirect_to albums_path
+  end
 end
