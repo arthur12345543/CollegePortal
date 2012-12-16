@@ -1,19 +1,21 @@
 <center><h1><%= @albums.title %></h1></center>
 <% @albums.photos.each do |photos| %>
 
-<h1><center><td><%= link_to photos.description, photos %></td></center></h1>
-
   	<span style="float: right;">
   	<% if user_signed_in? %>
     <% if current_user.id==@albums.user_id %> 
-    <%= link_to 'Edit', new_photo_path(:album_id => @albums.id) %>
-    <%= link_to 'Destroy', { :action => :destroy, :controller=>"photos", 
+    <%= link_to 'Удалить', { :action => :destroy, :controller=>"photos", 
     	:id => photos.id }, :method => :delete, :confirm => 'Are you sure?' %>
     <%end%>
     <%end%>
     </span>
-	<div id="photogaleleryIW">
-		<img src="" id="photogaleleryI" />
+	
+
+
+  <div id="photogaleleryIW">
+    <%if photos.picture_file_size != nil%> <%= image_tag photos.picture %> <%end%>
 	</div>
+
+  <center><%= link_to photos.description, photos %></center>
 
 <% end %>

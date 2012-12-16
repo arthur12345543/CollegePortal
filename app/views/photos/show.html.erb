@@ -1,5 +1,4 @@
-<h1><center><td><%= @photo.description %></td></center></h1>
-
 	<div id="photogaleleryIW">
-		<img src="" id="photogaleleryI" />
+		<%if @photo.picture_file_size != nil%> <%= image_tag @photo.picture %> <%end%>
 	</div>
+    <center><%= @photo.description %></center>
