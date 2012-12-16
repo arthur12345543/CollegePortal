@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20121212160718) do
 
   create_table "photos", :force => true do |t|
     t.text     "description"
-    t.integer  "id_albums"
+    t.integer  "album_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
