@@ -1,0 +1,9 @@
+class CreateCountLessons < ActiveRecord::Migration
+  def change
+    create_table :count_lessons do |t|
+      t.int :count
+
+      t.timestamps
+    end
+  end
+end
