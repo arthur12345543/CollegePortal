@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20121217143700) do
     t.integer  "group_id"
     t.integer  "day_id"
     t.integer  "audience_id"
-    t.integer  "teacher_id"
+    t.integer  "user_id"
     t.integer  "lesson_id"
     t.integer  "number_lesson"
     t.datetime "created_at",    :null => false
