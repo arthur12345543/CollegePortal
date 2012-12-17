@@ -13,7 +13,8 @@ CollegePortal::Application.routes.draw do
   get "users/set_role"
   get "users/set_teacher"
   get "users/set_student"
-   
+  get "users/show_all" 
+  
   resources :news
 
   resources :albums
