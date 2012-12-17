@@ -1,5 +1,5 @@
 class Audience < ActiveRecord::Base
   attr_accessible :title
   
-  belongs_to :data
+  belongs_to :data1
 end
