@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+ 
+  
+  
   def set_role
     if current_user.userable_type != nil
       redirect_to root_path
@@ -29,6 +32,10 @@ class UsersController < ApplicationController
       @user.save
       redirect_to root_path      
     end
+  end
+  
+  def show_all
+    @users = User.order("created_at DESC").paginate(:page => params[:page], :per_page => 2 )
   end
   
 end

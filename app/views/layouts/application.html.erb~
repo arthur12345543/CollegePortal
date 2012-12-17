@@ -58,7 +58,7 @@
 			</div>
 		</div>
 
-		<div style="clear: both;"></div>
+		<div style="clear: both;"></div> 
 
 	</div>
 
@@ -73,6 +73,7 @@
 			<li><%= link_to "Фотогалерея",        albums_path %></li>
 			<li><%= link_to "Абитуриентам",       "#" %></li>
 			<li><%= link_to "Файловое хранилище", 			  uploads_path %></li>
+			<li><%= link_to "Пользователи", 	:controller => "users", :action => "show_all" %></li>
 		</ul>
 		</center>
 
