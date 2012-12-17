@@ -11,11 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212160718) do
+ActiveRecord::Schema.define(:version => 20121217143700) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "audiences", :force => true do |t|
+    t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "count_lessons", :force => true do |t|
+    t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "data1s", :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "day_id"
+    t.integer  "audience_id"
+    t.integer  "teacher_id"
+    t.integer  "lesson_id"
+    t.integer  "number_lesson"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "days", :force => true do |t|
+    t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.text     "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
