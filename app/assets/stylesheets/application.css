@@ -186,9 +186,12 @@ a:active{
 */
 
 #photogaleleryIW{
-	border: solid 1px black; 
-	width: 700px;
-	height: 400px;
-	margin: 0px auto;
+	border: none;
+	display: block;
 }
 
+#photogaleleryIW img{
+	border: solid 1px black;
+	display: block; 
+	margin: 10px auto;
+}
