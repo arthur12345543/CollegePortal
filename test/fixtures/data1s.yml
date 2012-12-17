@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  group_id: 1
+  day_id: 1
+  audience_id: 
+  teacher_id: 1
+  lesson_id: 1
+  number_lesson: 1
+
+two:
+  group_id: 1
+  day_id: 1
+  audience_id: 
+  teacher_id: 1
+  lesson_id: 1
+  number_lesson: 1
