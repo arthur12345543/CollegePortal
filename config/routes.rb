@@ -1,7 +1,5 @@
 CollegePortal::Application.routes.draw do
 
-
-
   devise_for :users
   devise_for :users do 
     get 'sign_out' => 'devise/sessions#destroy'
@@ -22,6 +20,8 @@ CollegePortal::Application.routes.draw do
   resources :photos
   
   resources :uploads
+  
+  resources :schedules
   
   root :to => 'home#index'
 
