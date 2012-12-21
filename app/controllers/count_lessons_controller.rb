@@ -4,7 +4,7 @@ class CountLessonsController < ApplicationController
   end
 
   def create
-    @CountLesson = CountLesson.create(params[:count])
+    @CountLesson = CountLesson.create(params[:count_lesson])
     if @CountLesson.save
       redirect_to new_schedule_path
     end
