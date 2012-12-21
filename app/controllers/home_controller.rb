@@ -2,7 +2,8 @@
 
 class HomeController < ApplicationController
   
-  def index  
+  def index
+    @TitleOfPage = "Главная"  
   end
 
 end

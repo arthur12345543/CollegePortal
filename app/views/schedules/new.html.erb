@@ -1,2 +1,7 @@
-<h1>Schedules#new</h1>
-<p>Find me in app/views/schedules/new.html.erb</p>
+<center>
+<%= form_for CountLesson.new do |f| %>
+<%= f.label "Введите максимальное количество пар" %>
+<%= f.text_field :count %>
+<%= f.submit 'Записать значение' %>
+<% end %>
+</center>

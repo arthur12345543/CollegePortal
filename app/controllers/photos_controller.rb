@@ -11,11 +11,18 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(params[:photo])
-    redirect_to albums_path
+
+    if @photo.save
+      redirect_to albums_path
+    else
+      render :action => :new
+    end
+    
   end
 
   def show
     @photo = Photo.find(params[:id])
+    @TitleOfPage = @photo.description
   end
 
   def destroy

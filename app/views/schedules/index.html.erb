@@ -1,9 +1,13 @@
-<%= link_to 'Редактировать', new_schedule_path %>
 <style type="text/css">
   td{
   	padding: 5px;
   }
 </style>
+
+<% if user_signed_in? %>
+<%= link_to 'Добавить пару', new_schedule_path %>
+<%end%>
+
 <table border="1">
 <tr>
   <td></td>
@@ -17,33 +21,321 @@
   <td>РПЗ-310</td>
 </tr>
 <tr>
-  <td>П<br/>О<br/>Н<br/>Е<br/>Д<br/>Е<br/>Л<br/>Ь<br/>Н<br/>И<br/>К</td>
+  <td rowspan="4">П<br/>О<br/>Н<br/>Е<br/>Д<br/>Е<br/>Л<br/>Ь<br/>Н<br/>И<br/>К</td>
   <td>1</td>
-  <td>2</td>
-  <td>3</td>
-  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
 </tr>
-<tr>
-  <td>В<br/>Т<br/>О<br/>Р<br/>Н<br/>И<br/>К</td>   
-  <td>1</td>
-</tr>
-<tr>
-  <td>С<br/>Р<br/>Е<br/>Д<br/>А</td>
-  <td>1</td>
-</tr>
-<tr>
-  <td>Ч<br/>Е<br/>Т<br/>В<br/>Е<br/>Р<br/>Г</td>
-  <td>1</td>
-</tr>
-  <td>П<br/>Я<br/>Т<br/>Н<br/>И<br/>Ц<br/>А</td>
-  <td>1</td>
-<tr>
 
-</tr>
-  <td>С<br/>У<br/>Б<br/>Б<br/>О<br/>Т<br/>А</td>
-  <td>1</td>
 <tr>
-  <td>В<br/>О<br/>С<br/>К<br/>Р<br/>Е<br/>С<br/>Е<br/>Н<br/>Ь<br/>Е</td>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td rowspan="4">В<br/>Т<br/>О<br/>Р<br/>Н<br/>И<br/>К</td>   
   <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td rowspan="4">С<br/>Р<br/>Е<br/>Д<br/>А</td>
+  <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td rowspan="4">Ч<br/>Е<br/>Т<br/>В<br/>Е<br/>Р<br/>Г</td>
+  <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td rowspan="4">П<br/>Я<br/>Т<br/>Н<br/>И<br/>Ц<br/>А</td>
+  <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+
+
+<tr>
+  <td rowspan="4">С<br/>У<br/>Б<br/>Б<br/>О<br/>Т<br/>А</td>
+  <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td rowspan="4">В<br/>О<br/>С<br/>К<br/>Р<br/>Е<br/>С<br/>Е<br/>Н<br/>Ь<br/>Е</td>
+  <td>1</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>2</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>3</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+</tr>
+
+<tr>
+  <td>4</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
+  <td>Once</td>
 </tr>
 </table>
+
+

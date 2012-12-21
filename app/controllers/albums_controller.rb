@@ -22,6 +22,7 @@ class AlbumsController < ApplicationController
 
   def show
     @albums = Album.find(params[:id])
+    @TitleOfPage = @albums.title
   end
 
   def destroy
