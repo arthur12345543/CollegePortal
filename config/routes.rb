@@ -22,6 +22,16 @@ CollegePortal::Application.routes.draw do
   resources :uploads
   
   resources :schedules
+
+  resources :count_lessons
+
+  resources :lessons
+
+  resources :groups
+
+  resources :days
+
+  resources :audiences
   
   root :to => 'home#index'
 
