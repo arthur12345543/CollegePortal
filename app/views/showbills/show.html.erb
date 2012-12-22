@@ -1,0 +1,18 @@
+<table border='0' width='100%' bgcolor="#E6E6FA">
+  <tr  height='20'>
+    <th width='100' ></th>
+    <td><%= @Showbills.title%></td>
+    <th width='100' ></th>
+  </tr>
+  <tr height='20'>
+    <td width='100' ></td>
+    <td><%if @Showbills.picture_file_size != nil%> <%= image_tag @Showbills.picture%> <%end%>
+    <%= @NShowbillsews.text%><br></td>
+    <td width='100' ></td>
+  </tr>
+  <tr height='20'>
+    <td width='100' ></td>
+    <td><%= link_to 'Destroy', { :action => :destroy, :id => @Showbills.id }, :method => :delete, :confirm => 'Are you sure?' %></td>
+    <td width='100' ></td>
+  </tr>
+</table> 

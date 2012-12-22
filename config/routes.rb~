@@ -16,8 +16,6 @@ CollegePortal::Application.routes.draw do
   
   resources :news
 
-  resources :showbills
-  
   resources :albums
 
   resources :photos
