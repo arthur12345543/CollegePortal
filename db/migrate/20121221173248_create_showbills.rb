@@ -4,5 +4,5 @@ class CreateShowbills < ActiveRecord::Migration
   		t.has_attached_file :picture
   		t.timestamps
   	end
-  end d
+  end 
 end

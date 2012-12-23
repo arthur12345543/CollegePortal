@@ -37,6 +37,8 @@ CollegePortal::Application.routes.draw do
   resources :audiences
   
   resources :contacts
+
+  resources :data1s
   
   root :to => 'home#index'
 

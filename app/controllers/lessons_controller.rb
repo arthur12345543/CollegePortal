@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @Lesson = Lesson.create(params[:title])
+    @Lesson = Lesson.create(params[:lesson])
     if @Lesson.save
       redirect_to new_schedule_path
     end

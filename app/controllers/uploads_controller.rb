@@ -14,6 +14,6 @@ class UploadsController < ApplicationController
 	def destroy
 	  @Upload = Upload.find(params[:id])
 	  @Upload.destroy
-	redirect_to :action => :index
+	  redirect_to :action => :index
 	end
 end

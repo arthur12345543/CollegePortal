@@ -4,7 +4,7 @@ class AudiencesController < ApplicationController
   end
 
   def create
-    @Audience = Audience.create(params[:title])
+    @Audience = Audience.create(params[:audience])
     if @Audience.save
       redirect_to new_schedule_path
     end

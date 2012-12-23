@@ -4,7 +4,7 @@ class DaysController < ApplicationController
   end
 
   def create
-    @Day = Day.create(params[:title])
+    @Day = Day.create(params[:day])
     if @Day.save
       redirect_to new_schedule_path
     end

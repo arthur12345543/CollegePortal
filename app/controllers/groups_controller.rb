@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @Group = Group.create(params[:title])
+    @Group = Group.create(params[:group])
     if @Group.save
       redirect_to new_schedule_path
     end
