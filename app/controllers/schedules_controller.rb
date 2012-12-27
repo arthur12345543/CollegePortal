@@ -11,5 +11,7 @@ class SchedulesController < ApplicationController
   	@allDay = Day.all
   	@allGroup = Group.all
   	@allLesson = Lesson.all
+    @allTeacher = Teacher.all
+    @allLecturer = Lecturer.all
   end
 end

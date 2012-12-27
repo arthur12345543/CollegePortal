@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221173248) do
+ActiveRecord::Schema.define(:version => 20121227095010) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20121221173248) do
     t.integer  "number_lesson"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "flasher"
+    t.string   "lecturer_id"
   end
 
   create_table "days", :force => true do |t|
@@ -51,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20121221173248) do
 
   create_table "groups", :force => true do |t|
     t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lecturers", :force => true do |t|
+    t.text     "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -81,13 +89,6 @@ ActiveRecord::Schema.define(:version => 20121221173248) do
     t.datetime "picture_updated_at"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
-  end
-
-  create_table "showbills", :force => true do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "students", :force => true do |t|

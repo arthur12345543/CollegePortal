@@ -4,7 +4,6 @@ class CreateData1s < ActiveRecord::Migration
       t.integer :group_id
       t.integer :day_id
       t.integer :audience_id
-      t.integer :user_id
       t.integer :lesson_id
       t.integer :number_lesson
 

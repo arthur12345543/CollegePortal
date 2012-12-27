@@ -12,6 +12,4 @@ class User < ActiveRecord::Base
 
   belongs_to :userable, :polymorphic => true
   # attr_accessible :title, :body
-  
-  belongs_to :data1
 end
