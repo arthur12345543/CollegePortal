@@ -12,6 +12,14 @@
   }
 </style>
 
+<div>
+<center>
+<%= link_to 'Расписание', schedules_path %>
+<%= link_to '| Замены на сегодня | ', data2_index_path %>
+<%= link_to ' Замены на завтра', data3_index_path %>
+</center>
+</div>
+
 <% if user_signed_in? %>
 <%= link_to 'Добавить пару', new_schedule_path %>
 <%end%>
@@ -41,10 +49,12 @@
           <% @lesson = Lesson.where(:id => [d.lesson_id]) %>
           <% @lecturer = Lecturer.where(:id => [d.lecturer_id]) %>
           
+          <% if user_signed_in? %>
           <%= link_to 'Удалить', 
             { :action => :destroy, :controller=>"data1s", 
               :id => d.id }, 
               :method => :delete, :confirm => 'Вы уверены?' %>
+          <%end%>
 
           <% @lesson.each do |l| %>
             <div id="BGC"><%= l.title %></div><br/>
@@ -75,10 +85,12 @@
           <% @lesson = Lesson.where(:id => [d.lesson_id]) %>
           <% @lecturer = Lecturer.where(:id => [d.lecturer_id]) %>
           
+          <% if user_signed_in? %>
           <%= link_to 'Удалить', 
             { :action => :destroy, :controller=>"data1s", 
               :id => d.id }, 
               :method => :delete, :confirm => 'Вы уверены?' %>
+          <%end%>
 
           <% @lesson.each_with_index do |l, index| %>
             <div id="BGC"><%= l.title %></div><br/>

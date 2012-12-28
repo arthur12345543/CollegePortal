@@ -40,6 +40,10 @@ CollegePortal::Application.routes.draw do
 
   resources :data1s
 
+  resources :data2
+
+  resources :data3
+
   resources :lecturers
   
   root :to => 'home#index'
