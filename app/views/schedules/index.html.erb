@@ -2,6 +2,14 @@
   td{
   	padding: 5px;
   }
+
+  #BGC{
+
+  }
+
+  #BGA{
+    border: solid 2px black; 
+  }
 </style>
 
 <% if user_signed_in? %>
@@ -10,332 +18,90 @@
 
 <table border="1">
 <tr>
-  <td></td>
-  <td></td>
-  <td>РПЗ-221</td>
-  <td>ОПК-221</td>
-  <td>ПТ-221</td>
-  <td>РПЗ-111</td>
-  <td>РПЗ-211</td>
-  <td>ОПК-419</td>
-  <td>РПЗ-310</td>
+<td></td>
+<td></td>
+<% @allGroup.each do |group| %>
+<td><%= group.title %></td>
+<% end %>
 </tr>
-<tr>
-  <td rowspan="4">П<br/>О<br/>Н<br/>Е<br/>Д<br/>Е<br/>Л<br/>Ь<br/>Н<br/>И<br/>К</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+
+<% @allDay.each do |day| %>
 
 <tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+  <td rowspan=<%= @maxLessons.count %>><%= day.title %></td>
+  <% (1..@maxLessons.count).each do |i| %> 
+  <% if i==1 %>
+      <td>1</td>
+      <% @allGroup.each do |group| %>
+      <td>
+        <% @data1 = Data1.where(:group_id => [group.id], :day_id => [day.id], 
+        :number_lesson => [i]) %>
+        <% @data1.each do |d| %>
+          <% @audience = Audience.where(:id => [d.audience_id]) %>
+          <% @lesson = Lesson.where(:id => [d.lesson_id]) %>
+          <% @lecturer = Lecturer.where(:id => [d.lecturer_id]) %>
+          
+          <%= link_to 'Удалить', 
+            { :action => :destroy, :controller=>"data1s", 
+              :id => d.id }, 
+              :method => :delete, :confirm => 'Вы уверены?' %>
 
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @lesson.each do |l| %>
+            <div id="BGC"><%= l.title %></div><br/>
+          <% end %>
 
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @lecturer.each do |q| %>
+            <div id="BGC"><%= q.name %></div><br/>
+          <% end %>
 
-<tr>
-  <td rowspan="4">В<br/>Т<br/>О<br/>Р<br/>Н<br/>И<br/>К</td>   
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @audience.each do |f| %>
+            <div id="BGC"><%= f.title %></div><br/>
+            <div id="BGA"></div>
+          <% end %>
 
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+        <% end %>
+      </td>
+      <% end %>
+  </tr>
+  <% else %>
+    <tr>
+      <td><%= i %></td>
+      <% @allGroup.each do |group| %>
+      <td>
+        <% @data1 = Data1.where(:group_id => [group.id], :day_id => [day.id], 
+        :number_lesson => [i]) %>
+        <% @data1.each do |d| %>
+          <% @audience = Audience.where(:id => [d.audience_id]) %>
+          <% @lesson = Lesson.where(:id => [d.lesson_id]) %>
+          <% @lecturer = Lecturer.where(:id => [d.lecturer_id]) %>
+          
+          <%= link_to 'Удалить', 
+            { :action => :destroy, :controller=>"data1s", 
+              :id => d.id }, 
+              :method => :delete, :confirm => 'Вы уверены?' %>
 
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @lesson.each_with_index do |l, index| %>
+            <div id="BGC"><%= l.title %></div><br/>
+          <% end %>
 
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @lecturer.each do |q| %>
+            <div id="BGC"><%= q.name %></div><br/>
+          <% end %>
 
-<tr>
-  <td rowspan="4">С<br/>Р<br/>Е<br/>Д<br/>А</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+          <% @audience.each do |f| %>
+            <div id="BGC"><%= f.title %></div><br/>
+            <div id="BGA"></div>
+          <% end %>
 
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+        <% end %>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+  <% end %>
 
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
+<% end %>
 
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td rowspan="4">Ч<br/>Е<br/>Т<br/>В<br/>Е<br/>Р<br/>Г</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td rowspan="4">П<br/>Я<br/>Т<br/>Н<br/>И<br/>Ц<br/>А</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-
-
-<tr>
-  <td rowspan="4">С<br/>У<br/>Б<br/>Б<br/>О<br/>Т<br/>А</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td rowspan="4">В<br/>О<br/>С<br/>К<br/>Р<br/>Е<br/>С<br/>Е<br/>Н<br/>Ь<br/>Е</td>
-  <td>1</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>2</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>3</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
-
-<tr>
-  <td>4</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-  <td>Once</td>
-</tr>
 </table>
 
 

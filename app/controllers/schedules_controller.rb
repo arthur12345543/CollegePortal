@@ -2,6 +2,9 @@
 class SchedulesController < ApplicationController
   def index
   	@TitleOfPage = "Расписание"
+    @maxLessons = CountLesson.last
+    @allDay = Day.all
+    @allGroup = Group.all
   end
 
   def new
@@ -11,7 +14,6 @@ class SchedulesController < ApplicationController
   	@allDay = Day.all
   	@allGroup = Group.all
   	@allLesson = Lesson.all
-    @allTeacher = Teacher.all
     @allLecturer = Lecturer.all
   end
 end

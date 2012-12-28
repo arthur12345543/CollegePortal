@@ -1,6 +1,6 @@
 <style type="text/css">
 td{
-	background: #4169E1;;
+	background: #4169E1;
 }
 </style>
 <center><span style="color: #4169E1;">
@@ -37,11 +37,6 @@ td{
 <td><%= f.label "Номер пары" %></td>
 <td><%= f.select(:number_lesson, (1..@maxLessons.count), 
             {:prompt => 'Номер пары'}) %></td>
-</tr>
-<tr>
-<td><%= f.label "Мигалка" %></td>
-<td><%= f.select(:flasher, [["Нету", "0"], ["Не парная", "1"], ["Парная", "2"]], 
-            {:prompt => 'Мигалка'}) %></td>
 </tr>
 <tr>
 <td></td><td><%= f.submit 'Записать значение' %></td>

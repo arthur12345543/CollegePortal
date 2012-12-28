@@ -12,6 +12,6 @@ class Data1sController < ApplicationController
   def destroy
     @Data1 = Data1.find(params[:id])
     @Data1.destroy
-    redirect_to new_schedule_path
+    redirect_to schedules_path
   end
 end
