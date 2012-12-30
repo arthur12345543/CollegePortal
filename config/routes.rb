@@ -40,9 +40,9 @@ CollegePortal::Application.routes.draw do
 
   resources :data1s
 
-  resources :data2
+  resources :data2s
 
-  resources :data3
+  resources :data3s
 
   resources :lecturers
   

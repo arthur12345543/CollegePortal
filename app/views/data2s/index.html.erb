@@ -1,0 +1,84 @@
+<style type="text/css">
+  td{
+  	padding: 5px;
+  }
+
+  #BGC{
+
+  }
+
+  #BGA{
+    border: solid 2px black; 
+  }
+</style>
+<div>
+<center>
+<%= link_to 'Расписание', schedules_path %>
+<%= link_to '| Замены на сегодня | ', data2s_path %>
+<%= link_to ' Замены на завтра', data3s_path %>
+</center>
+</div>
+<% if user_signed_in? %>
+<%= link_to 'Добавить замену на сегодня', new_data2_path %>
+<%end%>
+<br/><center>Замены на сегодня</center><br/>
+
+
+<table border="1">
+<tr>
+<td>
+<% @dd = Data2.last %>
+<% if @dd!=nil %>
+<% @replacement_day =  Day.where(:id => [@dd.day_id]) %>
+<% @replacement_day.each do |ll| %>
+<%= ll.title %>
+<% end %>
+<% end %>
+</td>
+<% (1..@maxLessons.count).each do |i| %>
+<td><%= i %> пара</td>
+<% end %>
+</tr>
+
+<% @allGroup.each do |group| %>
+<tr>
+
+<td><%= group.title %></td>
+
+
+  <% (1..@maxLessons.count).each do |i| %>
+    <td>
+      <% @data2 = Data2.where(:group_id => [group.id], :number_lesson => [i]) %>
+
+      <% @data2.each do |d| %>
+          <% @audience = Audience.where(:id => [d.audience_id]) %>
+          <% @lesson = Lesson.where(:id => [d.lesson_id]) %>
+          <% @lecturer = Lecturer.where(:id => [d.lecture_id]) %>  
+      
+          <% if user_signed_in? %>
+            <%= link_to 'Удалить', 
+            { :action => :destroy, :controller=>"data2s", 
+              :id => d.id }, 
+              :method => :delete, :confirm => 'Вы уверены?' %>
+          <% end %>
+
+          <% @lesson.each do |l| %>
+            <div id="BGC"><%= l.title %></div><br/>
+          <% end %>
+
+          <% @lecturer.each do |le| %>
+            <div id="BGC"><%= le.name %></div><br/>   
+          <% end %>
+            
+          <% @audience.each do |a| %>
+            <div id="BGC"><%= a.title %></div><br/>
+            <div id="BGA"></div>
+          <% end %>
+      <% end %>
+    </td>
+  <% end %>
+
+
+</tr>
+<% end %>
+</table>
