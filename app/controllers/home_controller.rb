@@ -3,7 +3,8 @@
 class HomeController < ApplicationController
   
   def index
-    @TitleOfPage = "Главная"  
+    @TitleOfPage = "Главная"
+    @Photo1 = Album.all  
   end
 
 end

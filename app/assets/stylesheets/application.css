@@ -144,6 +144,7 @@ a:active{
 #photoPhoto{
 	text-align: center;
 	border: solid 1px #A9A9A9;
+	overflow: auto;
 	width: 800px;
 	height: 350px;
 }
