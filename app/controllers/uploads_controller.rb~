@@ -9,7 +9,7 @@ class UploadsController < ApplicationController
 
 	def create
 	    if current_user && current_user.role.can_add_files
-	      @upload = Upload.create(params[:upload])
+	    @upload = Upload.create(params[:upload])
 	    end
 	    redirect_to uploads_path
 	end

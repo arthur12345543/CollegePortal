@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
  
    def chenge_private_role
-  
+   @role = Role.find_last_by_id(params[:role])
     @user = User.find(params[:id])
-     @user.role=Role.find(params[:role_id])
+     @user.role=@role
   if @user.save
       redirect_to users_path
     else

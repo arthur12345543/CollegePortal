@@ -1,0 +1,26 @@
+<% @a=1 %>
+<table border='0' width=100% cellspacing='0'>
+<% @roles.each do |t| %>
+<% @a=@a+1%> 
+<tr bgcolor="
+  
+  <%if @a%2 != 0 %>
+   bbcaef
+  <% else %>
+  aacdff
+  <%end%>
+  ">
+  <td>
+  <%=t.name%>
+  </td>
+  <td>
+  <%=t.information%>
+  </td>
+  <td>
+  <%= link_to 'Destroy', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
+  </td>
+  </tr>
+<% end %>
+<%=link_to "создать новую роль", :action => "new"%>
+
+</table>

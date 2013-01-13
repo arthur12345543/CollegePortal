@@ -2,7 +2,7 @@
 Новости
  <% if current_user && current_user.role.can_add_news%>
 <%= link_to 'Создать', new_news_path %>
- <%end%>
+ <% if current_user && current_user.role.can_add_news%>
 
 <br>
 <%= will_paginate  %>

@@ -11,7 +11,7 @@
 
   <tr  height='20'>
     <th width='100' ></th>
-    <td><%=link_to n.surname+' '+n.name, :action => "show", :id => n.id%></td>
+    <td><%=link_to n.surname+' '+n.name, :action => "chenge_private_role"%></td>
     
     <td>
     <% if  n.userable_type == "Student" %>

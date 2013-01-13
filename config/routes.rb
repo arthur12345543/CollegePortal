@@ -12,7 +12,14 @@ CollegePortal::Application.routes.draw do
   get "users/set_role"
   get "users/set_teacher"
   get "users/set_student"
-  get "users/show_all" 
+  get "users" => "users#show_all"
+  get "users/:id"  => "users#show" 
+  get "users/SetPrivateRules/:id/:role_id"  => "users#chenge_private_role" 
+  
+  get "roles" => "roles#index"
+  get "roles/new"
+  post "roles" => "roles#create"
+  delete "roles" => "roles#destroy"
   
   resources :news
 

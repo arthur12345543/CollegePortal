@@ -11,7 +11,7 @@ class ShowbillsController < ApplicationController
 	def create
 	  @Showbills = Showbills.new(params[:showbills])
 	    if @Showbills.save
-		  redirect_to showbills_index_path
+		  redirect_to showbill_index_path
 		else
 		  render :action => :new
 		end

@@ -1,0 +1,14 @@
+<%= form_for Role.new do |f| %>
+Название роли:<br>
+<%= f.text_field :name %><br>
+Описание:<br>
+<%= f.text_area :information %><br>
+<%= f.check_box(:can_add_files)    %> Может добавлять файлы<br>
+<%= f.check_box(:can_delete_files) %> Может удалять файлы<br>
+<%= f.check_box(:can_add_news)     %> Может добавлять новости<br>
+<%= f.check_box(:can_delete_news)    %> Может удалять новости<br>
+
+
+
+<%= f.submit 'сохранить' %>
+<% end %>

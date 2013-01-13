@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228174135) do
+ActiveRecord::Schema.define(:version => 20130111223728) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20121228174135) do
     t.integer  "group_id"
     t.integer  "day_id"
     t.integer  "audience_id"
-    t.integer  "user_id"
     t.integer  "lesson_id"
     t.integer  "number_lesson"
     t.datetime "created_at",    :null => false
@@ -113,6 +112,15 @@ ActiveRecord::Schema.define(:version => 20121228174135) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "roles", :force => true do |t|
+    t.string  "name"
+    t.string  "information"
+    t.boolean "can_add_files",    :default => false
+    t.boolean "can_delete_files", :default => false
+    t.boolean "can_add_news",     :default => false
+    t.boolean "can_delete_news",  :default => false
+  end
+
   create_table "students", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -166,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20121228174135) do
     t.string   "character_type"
     t.integer  "userable_id"
     t.string   "userable_type"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
