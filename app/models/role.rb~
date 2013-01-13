@@ -1,4 +1,0 @@
-class Role < ActiveRecord::Base
-  attr_accessible :name, :information, :can_post_forum,  :can_add_photos,  :can_add_files,  :can_add_news, :role_id
-  validates :name, presence: true
-end
