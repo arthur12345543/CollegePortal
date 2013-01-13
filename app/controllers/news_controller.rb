@@ -8,7 +8,7 @@ class NewsController < ApplicationController
   end
 
   def create
-    if current_user && current_user.role.can_delete_news
+    if current_user && current_user.role && current_user.role.can_delete_news
       @news = News.new(params[:news])
       if @news.save
         redirect_to news_index_path
@@ -25,7 +25,7 @@ class NewsController < ApplicationController
   end
   
   def destroy
-    if current_user && current_user.role.can_delete_news
+    if current_user && current_user.role && current_user.role.can_delete_news
       @News = News.find(params[:id])
       @News.destroy
     end

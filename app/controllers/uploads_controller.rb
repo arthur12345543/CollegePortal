@@ -8,13 +8,13 @@ class UploadsController < ApplicationController
 	end
 
 	def create
-	    if current_user && current_user.role.can_add_files
+	    if current_user && current_user.role &&  current_user.role.can_add_files
 	      @upload = Upload.create(params[:upload])
 	    end
 	    redirect_to uploads_path
 	end
 	def destroy
-	  if current_user && current_user.role.can_delete_files 
+	  if current_user && current_user.role && current_user.role.can_delete_files 
 	    @Upload = Upload.find(params[:id])
 	    @Upload.destroy
 	    redirect_to :action => :index

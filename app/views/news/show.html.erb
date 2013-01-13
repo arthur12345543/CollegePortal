@@ -12,7 +12,7 @@
   </tr>
   <tr height='20'>
     <td width='100' ></td>
-    <% if current_user && current_user.role.can_delete_news%>
+    <% if current_user && current_user.role && current_user.role.can_delete_news%>
       <td><%= link_to 'Destroy', { :action => :destroy, :id => @News.id }, :method => :delete, :confirm => 'Are you sure?' %></td>
     <% end %>
     <td width='100' ></td>

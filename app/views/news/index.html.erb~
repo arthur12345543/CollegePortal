@@ -1,8 +1,8 @@
 <div>
 Новости
- <% if current_user && current_user.role.can_add_news%>
+ <% if current_user && current_user.role && current_user.role.can_add_news%>
 <%= link_to 'Создать', new_news_path %>
- <% if current_user && current_user.role.can_add_news%>
+ <%end%>
 
 <br>
 <%= will_paginate  %>

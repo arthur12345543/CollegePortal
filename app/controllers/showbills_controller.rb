@@ -1,7 +1,7 @@
 class ShowbillsController < ApplicationController
   
   	def index		
-      @Showbills = Showbills.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
+      @showbills = Showbills.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
 	end
 	
 	def new
@@ -11,7 +11,7 @@ class ShowbillsController < ApplicationController
 	def create
 	  @Showbills = Showbills.new(params[:showbills])
 	    if @Showbills.save
-		  redirect_to showbill_index_path
+		  redirect_to showbill_path
 		else
 		  render :action => :new
 		end
