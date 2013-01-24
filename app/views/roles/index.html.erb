@@ -17,7 +17,9 @@
   <%=t.information%>
   </td>
   <td>
+  <% if t.id>2 %>
   <%= link_to 'Destroy', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
+  <% end %>
   </td>
   </tr>
 <% end %>

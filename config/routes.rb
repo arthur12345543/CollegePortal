@@ -9,9 +9,8 @@ CollegePortal::Application.routes.draw do
   delete "news/:id" => "news#destroy"
   delete "showbills/:id" => "showbills#destroy"
   
-  get "users/set_role"
-  get "users/set_teacher"
-  get "users/set_student"
+  get "users/set_role/:id" => "users#set_role" 
+  get "users/select_role"
   get "users" => "users#show_all"
   get "users/:id"  => "users#show" 
   get "users/SetPrivateRules/:id/:role_id"  => "users#chenge_private_role" 

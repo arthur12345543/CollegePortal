@@ -1,16 +1,17 @@
 <%= will_paginate  %>
 <table border='1' width='100%' bgcolor="#E6E6FA">
 <tr  height='20'>
-    <th width='100' ></th>
+    
     <td>Пользователь</td>
     <td>Тип пользователя</td>
     <td>Дата регистрации</td>
-    <th width='100' ></th>
+    <td>Роль безопасности</td>
+   
   </tr>
 <% @users.each do |n| %>
 
   <tr  height='20'>
-    <th width='100' ></th>
+    
     <td><%=link_to n.surname+' '+n.name, :action => "show", :id => n.id%></td>
     
     <td>
@@ -23,7 +24,10 @@
     <% end %>
     </td>
     <td><%= n.created_at %></td>
-    <th width='100' ></th>
+    <td>
+     <%= n.role.name %>
+    </td>
+
   </tr>
 
 <br>

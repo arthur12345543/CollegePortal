@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111223728) do
+ActiveRecord::Schema.define(:version => 20130114100228) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -115,10 +115,10 @@ ActiveRecord::Schema.define(:version => 20130111223728) do
   create_table "roles", :force => true do |t|
     t.string  "name"
     t.string  "information"
-    t.boolean "can_add_files",    :default => false
-    t.boolean "can_delete_files", :default => false
-    t.boolean "can_add_news",     :default => false
-    t.boolean "can_delete_news",  :default => false
+    t.boolean "can_add_files",    :default => true
+    t.boolean "can_delete_files", :default => true
+    t.boolean "can_add_news",     :default => true
+    t.boolean "can_delete_news",  :default => true
   end
 
   create_table "students", :force => true do |t|
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(:version => 20130111223728) do
     t.string   "character_type"
     t.integer  "userable_id"
     t.string   "userable_type"
-    t.integer  "role_id"
+    t.integer  "role_id",                :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

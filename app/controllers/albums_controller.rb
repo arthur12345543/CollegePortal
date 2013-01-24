@@ -2,7 +2,7 @@
 class AlbumsController < ApplicationController
   def index
   	@TitleOfPage = "Фотогалерея"
-  	@albums = Album.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
+  	@albums = Album.order("created_at DESC").paginate(:page => params[:page], :per_page => 10 )
   end
 
   def new

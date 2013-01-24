@@ -29,7 +29,7 @@
 		<div id="linkHeaderBar">
 			<% if user_signed_in? %>
 			<% if current_user.userable_type==nil %>
-			<%=link_to 'Укажите тип пользователя!', users_set_role_path %>
+			<%=link_to 'Укажите тип пользователя!', users_select_role_path %>
 			<% end %>
 			<%= current_user.name+ ' ' + current_user.surname%>
 			&nbsp;&nbsp;
