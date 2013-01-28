@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114100228) do
+ActiveRecord::Schema.define(:version => 20130126172542) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(:version => 20130114100228) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "forum_categories", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "groups", :force => true do |t|
     t.text     "title"
     t.datetime "created_at", :null => false
@@ -119,6 +124,11 @@ ActiveRecord::Schema.define(:version => 20130114100228) do
     t.boolean "can_delete_files", :default => true
     t.boolean "can_add_news",     :default => true
     t.boolean "can_delete_news",  :default => true
+  end
+
+  create_table "showbills", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "students", :force => true do |t|

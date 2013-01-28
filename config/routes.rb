@@ -7,7 +7,8 @@ CollegePortal::Application.routes.draw do
     get "sign_up", :to => "devise/registrations#new"
   end
   delete "news/:id" => "news#destroy"
-  delete "showbills/:id" => "showbills#destroy"
+  delete "showbill/:id" => "showbill#destroy"
+  get "showbill" => "showbill#index"
   
   get "users/set_role/:id" => "users#set_role" 
   get "users/select_role"
@@ -22,7 +23,7 @@ CollegePortal::Application.routes.draw do
   
   resources :news
 
-  resources :showbills
+  resources :showbill
   
   resources :albums
 
