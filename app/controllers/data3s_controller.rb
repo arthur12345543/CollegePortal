@@ -3,6 +3,9 @@ class Data3sController < ApplicationController
   def index
   	@TitleOfPage = "Замены на завтра"
     @maxLessons = CountLesson.last
+    if @maxLessons.nil?
+      @maxLessons = CountLesson.new(:count => 0)
+    end
     @allAudience = Audience.all
     @allDay = Day.all
     @allGroup = Group.all
@@ -13,6 +16,9 @@ class Data3sController < ApplicationController
   def new
   	@TitleOfPage = "Добавить замену на завтра"
   	@maxLessons = CountLesson.last
+    if @maxLessons.nil?
+      @maxLessons = CountLesson.new(:count => 0)
+    end
   	@allAudience = Audience.all
   	@allDay = Day.all
   	@allGroup = Group.all
