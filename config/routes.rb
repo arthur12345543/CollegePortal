@@ -21,6 +21,18 @@ CollegePortal::Application.routes.draw do
   post "roles" => "roles#create"
   delete "roles" => "roles#destroy"
   
+  get "forum" => "forum#index"
+  get "forum/topic/:id" => "posts#show_all"
+  get "forum/new" => "forum#new"
+  get "forum/new_theme"  => "forum#new_theme"
+  post "forum" => "posts#create"
+
+  resources :themes
+ 
+  resources :posts
+  
+  resources :sections
+
   resources :news
 
   resources :showbill

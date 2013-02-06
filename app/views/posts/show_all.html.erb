@@ -1,0 +1,33 @@
+<%=@theme.title%><br>
+<%if @theme.post.last%>
+<%= will_paginate%>
+
+<% @theme.post.each do|t|%>
+<table border="1" width="100%">
+<tr>
+<td rowspan="2"  width="150" align="center">
+<%if t.user!=nil%><%= t.user.name+" "+t.user.surname%><%else%>Гость<%end%>
+</td>
+<td>
+<%=t.text%>
+</td>
+</tr>
+<tr bgcolor="#ffaaff">
+
+<td>
+Опубликовано: <%=t.created_at%>
+</td>
+</tr>
+</table>
+<br>
+<% end %>
+
+<%= will_paginate  %>
+<% end %>
+<%= form_for Post.new do |f| %>
+
+Сообщение:<br>
+<%= f.hidden_field :theme_id, value: @theme.id %>
+<%= f.text_area :text%>
+<%= f.submit 'сохранить' %>
+<% end %>

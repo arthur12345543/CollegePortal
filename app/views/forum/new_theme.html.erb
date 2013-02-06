@@ -1,0 +1,6 @@
+<%= form_for (@theme) do |f| %>
+Title:<%=@theme.section_id%><br>
+<%= f.text_field :title %><br>
+<%= f.select :section_id, Section.all.collect{|p| [p.title, p.id]}%>
+<%= f.submit 'сохранить' %>
+<% end %> 

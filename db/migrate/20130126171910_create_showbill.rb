@@ -1,4 +1,4 @@
-class CreateShowbills < ActiveRecord::Migration
+class CreateShowbill < ActiveRecord::Migration
   def change
     create_table :showbill do |t|
 

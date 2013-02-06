@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
 
   belongs_to :userable, :polymorphic => true
   belongs_to :role
+  has_many :post
   # attr_accessible :title, :body
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126172542) do
+ActiveRecord::Schema.define(:version => 20130130215812) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -117,18 +117,38 @@ ActiveRecord::Schema.define(:version => 20130126172542) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "posts", :force => true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string  "name"
     t.string  "information"
-    t.boolean "can_add_files",    :default => true
-    t.boolean "can_delete_files", :default => true
-    t.boolean "can_add_news",     :default => true
-    t.boolean "can_delete_news",  :default => true
+    t.boolean "can_add_files",       :default => true
+    t.boolean "can_delete_files",    :default => true
+    t.boolean "can_add_news",        :default => true
+    t.boolean "can_delete_news",     :default => true
+    t.boolean "can_add_showbill",    :default => true
+    t.boolean "can_delete_showbill", :default => true
   end
 
-  create_table "showbills", :force => true do |t|
+  create_table "sections", :force => true do |t|
+    t.text     "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "showbill", :force => true do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "students", :force => true do |t|
@@ -140,6 +160,13 @@ ActiveRecord::Schema.define(:version => 20130126172542) do
   create_table "teachers", :force => true do |t|
     t.date     "birthday"
     t.string   "lessons"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "themes", :force => true do |t|
+    t.text     "title"
+    t.integer  "section_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

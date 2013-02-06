@@ -1,0 +1,17 @@
+<table border='1' width='100%' bgcolor="#E6E6FA">
+<%= link_to "Новый раздел", :controller => "forum",:action => :new%><br>
+<%= link_to "Добавить тему", :controller => "forum",:action => :new_theme%>
+<% @sections.each do |n| %>
+  <tr  height='50' bgcolor="#ffffff">
+    <td><%= n.title %>
+    </td>
+  </tr>
+    <%n.theme.each do |t|%>
+    <tr  height='20'>
+    <td><%= link_to t.title, :controller => "posts",:action => :show_all, :id => t.id %>
+    
+  </tr>
+    <%end%>
+<% end %>
+</table> 
+
