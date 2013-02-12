@@ -1,0 +1,7 @@
+
+<center>
+<%= link_to 'Новая история', :action => :new %><br>
+<% @histories.each do |n| %>
+<%= link_to n.title, :id=> n.id, :action=> "show"%><br>
+<% end %>
+</center>
