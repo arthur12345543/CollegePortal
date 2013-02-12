@@ -16,6 +16,10 @@
 
 <td>
 Опубликовано: <%=t.created_at%>
+<%if t.user==current_user %>
+<% link_to "удалить",   :id=>t.id %>
+<%= link_to 'удалить', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
+<%end%>
 </td>
 </tr>
 </table>

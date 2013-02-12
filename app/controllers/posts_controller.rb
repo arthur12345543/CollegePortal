@@ -6,17 +6,19 @@ class PostsController < ApplicationController
   end
 
 
-def create
-   # if current_user && current_user.role && current_user.role.can_delete_news
-      @post = Post.new(params[:post])
-      @post.user= current_user
-      if @post.save
-        redirect_to :action => :show_all, :id => @post.theme_id
-      else
-        render :action => :new
-      end
-   # else
-   #   redirect_to news_index_path
-  #  end
+  def create
+ # if current_user && current_user.role && current_user.role.can_delete_news
+    @post = Post.new(params[:post])
+    @post.user= current_user
+    @post.save
+    redirect_to :action => :show_all, :id => @post.theme_id
   end
+  
+  def destroy
+    @Post = Post.find(params[:id])
+    @Theme = @Post.theme
+    @Post.destroy
+    redirect_to :action=>"show_all", :id => @Theme.id
+  end
+
 end

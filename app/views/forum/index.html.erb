@@ -3,12 +3,12 @@
 <%= link_to "Добавить тему", :controller => "forum",:action => :new_theme%>
 <% @sections.each do |n| %>
   <tr  height='50' bgcolor="#ffffff">
-    <td><%= n.title %>
+    <td><%= n.title %> <%= link_to 'удалить', { :action => :destroy, :controller => "sections", :id => n.id }, :method => :delete, :confirm => 'Are you sure?' %>
     </td>
   </tr>
     <%n.theme.each do |t|%>
     <tr  height='20'>
-    <td><%= link_to t.title, :controller => "posts",:action => :show_all, :id => t.id %>
+    <td><%= link_to t.title, :controller => "posts",:action => :show_all, :id => t.id %> <%= link_to 'удалить', { :action => :destroy, :controller => "themes", :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
     
   </tr>
     <%end%>

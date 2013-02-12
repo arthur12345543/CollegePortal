@@ -6,5 +6,17 @@ class SectionsController < ApplicationController
       else
         render :action => :new
       end
-    end
+
 end
+  def destroy
+    @Section = Section.find(params[:id])
+    @Section.theme.each do|n|
+      n.post.each do|t|
+        t.destroy
+      end
+     n.destroy
+    end
+    @Section.destroy
+    redirect_to forum_path
+  end
+      end

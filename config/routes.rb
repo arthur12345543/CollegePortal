@@ -26,7 +26,10 @@ CollegePortal::Application.routes.draw do
   get "forum/new" => "forum#new"
   get "forum/new_theme"  => "forum#new_theme"
   post "forum" => "posts#create"
-
+  delete "forum/post/:id" => "posts#destroy"
+  delete "forum/theme/:id" => "themes#destroy"
+  delete "forum/section/:id" => "sections#destroy"
+  
   resources :themes
  
   resources :posts
