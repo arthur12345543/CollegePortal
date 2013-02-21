@@ -21,11 +21,9 @@ CollegePortal::Application.routes.draw do
   post "roles" => "roles#create"
   delete "roles" => "roles#destroy"
 
-  get "manuals" => "manuals#index"
-  get "manuals/new" => "manuals#new"
 
   get "histories" => "histories#index"
-  #delete "history/:id" => "histories#destroy"
+  delete "history/:id" => "histories#destroy"
   get "histories/show/:id" => "histories#show"
 
   
@@ -42,8 +40,6 @@ CollegePortal::Application.routes.draw do
   resources :sections
 
   resources :news
-
-  resources :manuals
 
   resources :histories
 

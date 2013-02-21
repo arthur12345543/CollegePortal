@@ -5,9 +5,6 @@ class HistoriesController < ApplicationController
 
   end
     
-  def new
-
-  end
     
   def create
      @histories = History.new(params[:history])
@@ -27,7 +24,13 @@ class HistoriesController < ApplicationController
   end
     
   def destroy
+    @history = History.find(params[:id])
+    @history.destroy
+ 
+  redirect_to :action => :index
+
+end
 
   end
 
-end
+

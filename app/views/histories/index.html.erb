@@ -3,5 +3,6 @@
 <%= link_to 'Новая история', :action => :new %><br>
 <% @histories.each do |n| %>
 <%= link_to n.title, :id=> n.id, :action=> "show"%><br>
+<%= link_to 'Удвлить историю', { :action => :destroy, :id => n.id }, :method => :delete, :confirm => 'Вы действительно хотите удалить историю?' %>
 <% end %>
 </center>
