@@ -17,12 +17,14 @@
   <%=t.information%>
   </td>
   <td>
-  <% if t.id>2 %>
+  <% if t.id>3 && if current_user && current_user.role &&  current_user.role.can_admin_roles %>
   <%= link_to 'Destroy', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
+
   <% end %>
   </td>
   </tr>
 <% end %>
+  <% if current_user && current_user.role &&  current_user.role.can_admin_roles %>
 <%=link_to "создать новую роль", :action => "new"%>
-
+  <% end %>
 </table>

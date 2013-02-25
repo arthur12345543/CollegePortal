@@ -11,6 +11,7 @@
 <% else %>
 Не указана
 <% end %>
+  <% if current_user && current_user.role && current_user.role.can_admin_roles %>
 <table border=2>
 <tr>
 <td>
@@ -25,6 +26,7 @@
 </tr>
 <% end %>
 </table>
+<% end %>
 
 
 <br>

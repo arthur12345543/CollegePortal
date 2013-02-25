@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
  
-   def chenge_private_role
-  
-    @user = User.find(params[:id])
-     @user.role=Role.find(params[:role_id])
-  if @user.save
+  def chenge_private_role
+    if current_user && current_user.role && current_user.role.can_admin_roles 
+      @user = User.find(params[:id])
+      @user.role=Role.find(params[:role_id])
+      if @user.save == false
+       render :action => :show
+      end
       redirect_to users_path
-    else
-    render :action => :show
-    end
+    end 
   end
 
   

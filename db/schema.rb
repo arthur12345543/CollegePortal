@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130131135423) do
+ActiveRecord::Schema.define(:version => 20130225133042) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -102,11 +102,6 @@ ActiveRecord::Schema.define(:version => 20130131135423) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "manuals", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "news", :force => true do |t|
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -146,6 +141,12 @@ ActiveRecord::Schema.define(:version => 20130131135423) do
     t.boolean "can_delete_news",     :default => true
     t.boolean "can_add_showbill",    :default => true
     t.boolean "can_delete_showbill", :default => true
+    t.boolean "can_add_history",     :default => true
+    t.boolean "can_delete_history",  :default => true
+    t.boolean "can_post_forum",      :default => true
+    t.boolean "can_admin_forum",     :default => true
+    t.boolean "can_manage_albums",   :default => true
+    t.boolean "can_admin_roles",     :default => true
   end
 
   create_table "sections", :force => true do |t|

@@ -7,17 +7,20 @@ class PostsController < ApplicationController
 
 
   def create
- # if current_user && current_user.role && current_user.role.can_delete_news
-    @post = Post.new(params[:post])
-    @post.user= current_user
-    @post.save
+    if current_user && current_user.role && current_user.role.can_post_forum
+      @post = Post.new(params[:post])
+      @post.user= current_user
+      @post.save
+    end
     redirect_to :action => :show_all, :id => @post.theme_id
   end
   
   def destroy
     @Post = Post.find(params[:id])
-    @Theme = @Post.theme
-    @Post.destroy
+    if @Post.user == current_user || (current_user && current_user.role && current_user.role.can_admin_forum)
+      @Theme = @Post.theme
+      @Post.destroy
+    end
     redirect_to :action=>"show_all", :id => @Theme.id
   end
 

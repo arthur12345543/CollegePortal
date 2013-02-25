@@ -16,7 +16,7 @@
 
 <td>
 Опубликовано: <%=t.created_at%>
-<%if t.user==current_user %>
+<%if t.user==current_user || (current_user && current_user.role &&  current_user.role.can_admin_forum) %>
 <% link_to "удалить",   :id=>t.id %>
 <%= link_to 'удалить', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
 <%end%>
@@ -28,10 +28,12 @@
 
 <%= will_paginate  %>
 <% end %>
+<% if current_user && current_user.role &&  current_user.role.can_post_forum %>
 <%= form_for Post.new do |f| %>
 
 Сообщение:<br>
 <%= f.hidden_field :theme_id, value: @theme.id %>
 <%= f.text_area :text%>
 <%= f.submit 'сохранить' %>
+<% end %>
 <% end %>

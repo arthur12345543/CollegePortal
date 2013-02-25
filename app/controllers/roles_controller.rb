@@ -1,7 +1,11 @@
 class RolesController < ApplicationController
   def index	
-     @TitleOfPage = "User roles"
-    @roles = Role.all
+    if current_user && current_user.role && current_user.role.can_admin_roles 
+      @TitleOfPage = "User roles"
+      @roles = Role.all
+    else
+      redirect_to :root
+    end
   end
   
   def new
@@ -9,14 +13,18 @@ class RolesController < ApplicationController
   end
 
   def create
-    @role = Role.new(params[:role])
-    @role.save
+    if current_user && current_user.role && current_user.role.can_admin_roles 
+      @role = Role.new(params[:role])
+      @role.save
+    end
     redirect_to :action => :index
   end
 
   def destroy
-    @Role = Role.find(params[:id])
-    @Role.destroy
+    if current_user && current_user.role && current_user.role.can_admin_roles 
+      @Role = Role.find(params[:id])
+      @Role.destroy
+    end
     redirect_to :action => :index
   end
 end
