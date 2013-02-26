@@ -8,7 +8,7 @@ class ThemesController < ApplicationController
       redirect_to forum_path
     end
   end
-end
+
     
 def destroy
   if current_user && current_user.role && current_user.role.can_admin_forum
@@ -19,4 +19,5 @@ def destroy
     @Theme.destroy
   end
     redirect_to forum_path
+end
 end
