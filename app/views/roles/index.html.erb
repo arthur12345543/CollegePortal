@@ -1,8 +1,9 @@
 <% @a=1 %>
 <table border='0' width=100% cellspacing='0'>
+
 <% @roles.each do |t| %>
 <% @a=@a+1%> 
-<tr bgcolor="
+  <tr bgcolor="
   
   <%if @a%2 != 0 %>
    bbcaef
@@ -24,7 +25,9 @@
   </td>
   </tr>
 <% end %>
+
+  <% end %>
+</table>
   <% if current_user && current_user.role &&  current_user.role.can_admin_roles %>
 <%=link_to "создать новую роль", :action => "new"%>
   <% end %>
-</table>

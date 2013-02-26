@@ -70,6 +70,9 @@
 			<li><%= link_to "Новости",              news_index_path %></li>
 	    <!--<li><%= link_to "Афиша",                showbill_index_path %></li>-->
 			<li><%= link_to "Форум",                forum_path%></li>
+			<% if current_user && current_user.role && current_user.role.can_admin_roles %>
+			<li><%= link_to "Роли",                roles_path%></li>
+			<% end %>
 			<li><%= link_to "Фотогалерея",          albums_path %></li>
 			<li><%= link_to "Абитуриентам",         histories_path%></li>
 			<li><%= link_to "Файловое хранилище",   uploads_path %></li>
