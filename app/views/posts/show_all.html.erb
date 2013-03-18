@@ -7,6 +7,8 @@
 <tr>
 <td rowspan="2"  width="150" align="center">
 <%if t.user!=nil%><%= t.user.name+" "+t.user.surname%><%else%>Гость<%end%>
+<br>
+<%= image_tag t.user.avatar%>
 </td>
 <td>
 <%=t.text%>
