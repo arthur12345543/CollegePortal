@@ -1,5 +1,6 @@
-<%= form_for News.new do |f| %>
- <% if @news.errors.any? %>
+<%= form_for :news, :url => { :action => :update, :id => @news.id },
+:method => :put do |f| %>
+  <% if @news.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@news.errors.count, "error") %> prohibited
         this news from being saved:</h2>
@@ -10,11 +11,14 @@
     </ul>
   </div>
   <% end %>
-Title:<br>
+  Title:<br>
 <%= f.text_field :title %><br>
 Photo:<br>
 <%= f.file_field :picture %><br>
 Text:<br>
 <%= f.text_area :text%>
 <%= f.submit 'сохранить' %>
+  </p>
 <% end %>
+ 
+<%= link_to 'Back', :action => :index %> 

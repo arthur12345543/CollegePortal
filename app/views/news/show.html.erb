@@ -12,9 +12,15 @@
   </tr>
   <tr height='20'>
     <td width='100' ></td>
+    <td>
     <% if current_user && current_user.role && current_user.role.can_delete_news%>
-      <td><%= link_to 'удалить', { :action => :destroy, :id => @News.id }, :method => :delete, :confirm => 'Are you sure?' %></td>
+      <%= link_to 'удалить', { :action => :destroy, :id => @News.id }, :method => :delete, :confirm => 'Are you sure?' %>
     <% end %>
+    <br>
+    <% if current_user && current_user.role && current_user.role.can_edit_news%>
+      <%= link_to 'редактировать', { :action => :edit, :id => @News.id } %>
+    <% end %>
+    </td>
     <td width='100' ></td>
   </tr>
 </table> 

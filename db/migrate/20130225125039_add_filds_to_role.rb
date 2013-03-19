@@ -7,6 +7,7 @@ class AddFildsToRole < ActiveRecord::Migration
       t.boolean :can_admin_forum, :default => true
       t.boolean :can_manage_albums, :default => true
       t.boolean :can_admin_roles, :default => true
+      t.boolean :can_edit_news, :default => false
     end
   end
 

@@ -7,6 +7,9 @@ CollegePortal::Application.routes.draw do
     get "sign_up", :to => "devise/registrations#new"
   end
   delete "news/:id" => "news#destroy"
+  put "news/:id" => "news#update"
+  get "news/:id/edit" => "news#edit"
+  
   delete "showbill/:id" => "showbill#destroy"
   get "showbill" => "showbill#index"
   

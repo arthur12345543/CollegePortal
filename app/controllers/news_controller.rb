@@ -1,10 +1,11 @@
 class NewsController < ApplicationController
   def index		
-    @news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 1 )
+    @news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 10 )
   end	
   
   def new
     @TitleOfPage = "New News"
+    @news = News.new
   end
 
   def create
@@ -19,9 +20,26 @@ class NewsController < ApplicationController
       redirect_to news_index_path
     end
   end
-
+  
+  def update
+    if current_user && current_user.role && current_user.role.can_edit_news
+      @news = News.find(params[:id])
+      if @news.update_attributes(params[:news])
+        redirect_to :action => :show, :id => @news.id
+      else
+        render :action => :edit
+      end
+    else
+      redirect_to news_index_path   
+    end
+  end
+  
   def show 
     @News = News.find(params[:id])
+  end
+  
+   def edit 
+    @news = News.find(params[:id])
   end
   
   def destroy

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     end 
   end
 
+  def edit
+    @news = News.find(params[:id])
+  end
   
   def select_role
     if current_user.userable_type != nil

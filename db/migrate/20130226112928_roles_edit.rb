@@ -13,6 +13,7 @@ class RolesEdit < ActiveRecord::Migration
     @a.can_manage_albums = false
     @a.can_admin_roles = false
     @a.can_post_forum = true
+    @a.can_edit_news = true
     @a.save
     
     @b=Role.new
@@ -28,6 +29,7 @@ class RolesEdit < ActiveRecord::Migration
     @b.can_manage_albums = true
     @b.can_admin_roles = true
     @b.can_post_forum = true
+    @b.can_edit_news = true
     @b.save
 
     @c=Role.new
@@ -41,8 +43,9 @@ class RolesEdit < ActiveRecord::Migration
     @c.can_delete_history = false
     @c.can_admin_forum = false
     @c.can_manage_albums = false
-    @c.can_admin_roles = true
+    @c.can_admin_roles = false
     @c.can_post_forum = false
+    @c.can_edit_news = false
     @c.save
   end
 
