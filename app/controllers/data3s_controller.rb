@@ -1,6 +1,7 @@
 #encoding: utf-8
 class Data3sController < ApplicationController
   def index
+    @Photo1 = Album.all
   	@TitleOfPage = "Замены на завтра"
     @maxLessons = CountLesson.last
     if @maxLessons.nil?
@@ -14,6 +15,7 @@ class Data3sController < ApplicationController
   end
 
   def new
+    @Photo1 = Album.all
   	@TitleOfPage = "Добавить замену на завтра"
   	@maxLessons = CountLesson.last
     if @maxLessons.nil?
@@ -27,6 +29,7 @@ class Data3sController < ApplicationController
   end
 
   def create
+    @Photo1 = Album.all
     @Data3 = Data3.create(params[:data3])
     if @Data3.save
       redirect_to new_data3_path
@@ -34,6 +37,7 @@ class Data3sController < ApplicationController
   end
 
   def destroy
+    @Photo1 = Album.all
   	@Data3 = Data3.find(params[:id])
     @Data3.destroy
     redirect_to data3s_path

@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
      def create
+      @Photo1 = Album.all
       if current_user && current_user.role && current_user.role.can_admin_forum
         @section = Section.new(params[:section])
         if @section.save == false
@@ -11,6 +12,7 @@ class SectionsController < ApplicationController
 
 end
   def destroy
+    @Photo1 = Album.all
     if current_user && current_user.role && current_user.role.can_admin_forum
       @Section = Section.find(params[:id])
       @Section.theme.each do|n|

@@ -16,7 +16,7 @@
 <% @albums.each do |albums| %>
   	<h1><center><%= link_to albums.title, albums %></center></h1>
 
-  	<span style="float: right;">
+  	<div style="float: right;">
   	<% if user_signed_in? %>
     <% if current_user.id==albums.user_id %> 
     <%= link_to 'Добавить фото', new_photo_path(:album_id => albums.id) %>
@@ -24,7 +24,8 @@
     :confirm => 'Вы уверены?' %>
     <%end%>
     <%end%>
-    </span>
+    </div>
+    <div style="clear: both;"></div>
 	<div id="photogaleleryIW">
 		<%if defined? albums.photos.first.picture_file_size %>
     <%if albums.photos.first.picture_file_size != nil%> <%= image_tag albums.photos.first.picture %> 

@@ -1,4 +1,4 @@
-<table border='0' width='100%' bgcolor="#E6E6FA">
+<table border='0' width='100%' bgcolor="#55b2f8">
   <tr  height='20'>
     <th width='100' ></th>
     <td><%= @News.title%></td>
@@ -6,7 +6,7 @@
   </tr>
   <tr height='20'>
     <td width='100' ></td>
-    <td><%if @News.picture_file_size != nil%> <%= image_tag @News.picture%> <%end%>
+    <td><%if @News.picture_file_size != nil%> <%= image_tag @News.picture%> <%end%><br/>
     <%= @News.text%><br></td>
     <td width='100' ></td>
   </tr>

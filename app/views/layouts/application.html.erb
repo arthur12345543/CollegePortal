@@ -14,91 +14,312 @@
   <script type="text/javascript">
 
   </script>
+<script type="text/javascript">
+var URLOfPhotos = [
+	<% @Photo1.each do |albums| %>
+	<% albums.photos.each do |al| %>
+		"<%= al.picture.url %>",
+	<% end %>  
+	<% end %>];
+var maxSlide = URLOfPhotos.length;
+var i = 0;
+var plus = 1.0;
 
+function BackSlide()
+{
+	i -= 1;
+	var LAPhoto = document.getElementById('LAPhoto');
+    LAPhoto.src = URLOfPhotos[i]; 
+    if(i<0)
+    {
+    	i = maxSlide;
+    }
+}
+
+function ForwardSlide()
+{
+	i += 1;
+	var LAPhoto = document.getElementById('LAPhoto');
+    LAPhoto.src = URLOfPhotos[i];
+    if(i==maxSlide)
+    {
+    	i = 0;
+    } 
+}
+
+function GoSlide()
+{	
+	var LAPhoto = document.getElementById('LAPhoto');
+
+    for(var g = 0; g <= 100; g++)
+    {
+        plus -= 0.15;
+        LAPhoto.style.opacity = plus;
+        if(plus<=0)
+        {
+        	plus = 0.1;
+        	break;
+        }
+        setTimeout("",100);
+    }
+    LAPhoto.src = URLOfPhotos[i];
+    LAPhoto.style.opacity = 0.1;
+    for(var g = 0; g <= 100; g++)
+    {
+        plus += 0.15;
+        LAPhoto.style.opacity = plus;
+        if(plus>=1.0)
+        {
+        	plus = 1.0;
+        	break;
+        } 
+        setTimeout("",100);
+    }
+    i++;
+    if(i==maxSlide)
+    {
+    	i = 0;
+    }
+    setTimeout(GoSlide,7000);
+}
+</script>
 </head>
 <body>
 
-<div id="wrapper">
+<style>
 
-	<div id="header">
+#content{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 5px;
+}
 
-		<div id="titleOfCollege">
-			Kharkiv Computer and Technology College
-		</div>
+#footer{
+	width: 95%;
+	margin-bottom: 5px;
+	padding: 5px;
+	background: #55b2f8;
+}
 
-		<div id="linkHeaderBar">
-			<% if user_signed_in? %>
-			<% if current_user.userable_type==nil %>
-			<%=link_to 'Укажите тип пользователя!', users_select_role_path %>
-			<% end %>
-			<%= current_user.name+ ' ' + current_user.surname%>
-			&nbsp;&nbsp;
-			<%=link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-			<% else %>
-			<%=link_to 'Войти', new_user_session_path %>
-			&nbsp;&nbsp;
-			<%=link_to 'Регистрация', sign_up_path %>
-			
-			
-			
-			<%end%>
-			&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="">en</a>
-			<a href="">ru</a>
-			<a href="">ua</a>
+body{
+    padding: 0px;
+    margin: 0px;
+    background: #85c8f5;
+}
 
-			<br/>
-			<br/>
-			<div id="homeSearch"> 
-				<input type="text" value="Введите текст для поиска" onfocus="this.value='';" onblur="if (this.value != '') {this.onfocus = function(){};} else this.value='Введите текст для поиска';"
-				style="width: 200px;"/>
-				<input type="button" value="Найти">
-			</div>
-		</div>
+a{
+    color: #fff;
+	font-weight: bolder;
+    text-decoration: none; 
+}
+a:active{
+    color: #000;
+	font-weight: bolder;
+	cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;    
+}
+a:hover{
+    color: #000;
+	font-weight: bolder;
+	cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-		<div style="clear: both;"></div> 
+#photoPhoto{
+    width: 800px;
+    height: 400px;
+}
+
+#photoNext{
+	font-size: 31px;
+}
+
+#UpBG{
+    background: #85c8f5;
+}
+#TaS{
+	 padding: 10px;
+	 margin-left: 20px;
+	 margin-top: -60px;
+}
+#languages{
+    color: #fff;
+    font-weight: bolder;
+    padding-top: 50px;
+    float: right;
+    margin-right: 50px;
+}
+#LeftLogoText{
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: right;
+}
+#RightLogoText{
+    color: #fff;
+    font-weight: bolder;
+    font-size: 20px;
+}
+#txe{
+    font-size: 13px;
+}
+#UpperMenu{
+    margin-top: 10px;
+    width: 95%;
+    height: 30px;
+    background: #55b2f8;
+    padding: 5px;
+}
+
+#BottMenu{
+    width: 95%;
+    height: 10px;
+    background: #4fb1f2;
+    padding: 5px;
+}
+
+#menuBox{
+    margin-left: 10px;
+    background: #55b2f8;
+    padding: 5px;
+    color: #fff;
+    font-weight: bolder;
+}
+#menuBox:active{
+    margin-left: 10px;
+    background: #26a3fd;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#menuBox:hover{
+    margin-left: 10px;
+    background: #26a3fd;
+    color: #fff;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+</style>
+<div id="UpBG">
+	<center><img src="1.jpg"></center>
+	<table id="TaS">
+    <tr>
+        <td>
+         		<% if user_signed_in? %>
+				<% if current_user.userable_type==nil %>
+				<%=link_to 'Укажите тип пользователя!', users_select_role_path %>
+				<% end %>
+				<%= current_user.name+ ' ' + current_user.surname%>
+				&nbsp;&nbsp;
+				<%=link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+				<% else %>
+				<%=link_to 'Войти', new_user_session_path %>
+				&nbsp;&nbsp;
+				<%=link_to 'Регистрация', sign_up_path %>
+				<%end%>
+        </td>
+        <!--<td>
+        		<a href="">en</a> <a href="">ru</a> <a href="">ua</a>
+        </td>-->
+    </tr>
+    </table>
+        
+    
+    <center>
+        <div id="UpperMenu">
+            <table>
+            <tr>
+                <td>
+                    <span id="menuBox"><%= link_to "Главная",              root_path %></span>
+                </td>
+                <td>
+                    <span id="menuBox"><%= link_to "Новости",              news_index_path %></span>
+                </td>
+                <!--<td>
+                    <span id="menuBox"> <%= link_to "Афиша", showbill_index_path %></span>
+                </td>-->
+                <td>
+                    <span id="menuBox"><%= link_to "Форум",                forum_path%></span>
+                </td>
+                <!--<td>
+                    <span id="menuBox"><% if current_user && current_user.role && current_user.role.can_admin_roles %><%= link_to "Роли",                roles_path%>
+					<% end %></span>
+                </td>-->
+                <td>
+                    <span id="menuBox"><%= link_to "Фотогалерея",          albums_path %></span>
+                </td>
+                <td>
+                    <span id="menuBox"><%= link_to "Абитуриентам",         histories_path%></span>
+                </td>
+                <td>
+                    <span id="menuBox"><%= link_to "Файловое хранилище",   uploads_path %></span>
+                </td>
+                <!--<td>
+                    <span id="menuBox"><li><%= link_to "Пользователи",         users_path %></li></span>
+                </td>-->
+                <td>
+                    <span id="menuBox"><%= link_to "Расписание",           schedules_path %></span>
+                </td>
+                <td>
+                    <span id="menuBox"><%= link_to "Контакты",             contacts_path %></span>
+                </td>
+            </tr>
+            </table>
+        </div>
+    </center>
+    
+    <center>
+    
+    <center>
+	<div id="photoWrapper">
+
+		<table id="photoTable">
+			<tr>
+				<td id="photoNext">
+					<a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>
+				</td>
+				
+				<td id="photoPhoto">
+			      <center><img id="LAPhoto" src="" /></center>
+			      <script type="text/javascript">GoSlide();</script>
+				</td>
+
+				<td id="photoNext">
+					<a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>
+				</td>
+			</tr>
+		</table>
 
 	</div>
+	</center>
+    
+    </center>
+    
+    <center>
+    <div id="BottMenu"></div>
+    </center>
+    
+</div>
+<div id="content">
+		<div style="width: 95%; margin-left: 2.5%;">
+		<%= yield %>
+		</div> 
+</div>
 
-	<div id="menuLink">
-
-		<center>
-		<ul id="menuLinkList">
-			<li><%= link_to "Главная",              root_path %></li>
-			<li><%= link_to "Новости",              news_index_path %></li>
-	    <!--<li><%= link_to "Афиша",                showbill_index_path %></li>-->
-			<li><%= link_to "Форум",                forum_path%></li>
-			<% if current_user && current_user.role && current_user.role.can_admin_roles %>
-			<li><%= link_to "Роли",                roles_path%></li>
-			<% end %>
-			<li><%= link_to "Фотогалерея",          albums_path %></li>
-			<li><%= link_to "Абитуриентам",         histories_path%></li>
-			<li><%= link_to "Файловое хранилище",   uploads_path %></li>
-			<li><%= link_to "Пользователи",         users_path %></li>
-			<li><%= link_to "Расписание",           schedules_path %></li>
-			<li><%= link_to "Контакты",             contacts_path %></li>
-			
-		</ul>
-		</center>
-
-	</div>
-
-	<div id="content">
-		<%= yield %> 
-	</div>
-
-	<div id="footer">
+<center>
+<div id="footer">
 		<center>
 			2012<br/>
-			Эдуард Рубин, Павел Обод, <a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>, Никита Грицюк,<br/> Сергей Бугаенко, Богдан Шкляр, Андрей Медведенко, 
-			Олег Пащенко, Алексей Тарасов, Оксана Душенковская.
+			Эдуард Рубин, Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко,
+			<a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>, <br/> Сергей Бугаенко.
 			
 		</center>	
-	</div>
-
 </div>
+</center>
 
 </body>
 </html>
+
