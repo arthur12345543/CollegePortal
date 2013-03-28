@@ -2,13 +2,13 @@
 class NewsController < ApplicationController
   def index
     @TitleOfPage = "Новости"
-    @Photo1 = Album.all		
+    		
     @news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 10 )
   end	
   
   def new
     @TitleOfPage = "Новая новость"
-    @Photo1 = Album.all
+    
     @TitleOfPage = "New News"
     @news = News.new
   end

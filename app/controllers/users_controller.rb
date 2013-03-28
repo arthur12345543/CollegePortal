@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
  
   def chenge_private_role
-    @Photo1 = Album.all
+    
     if current_user && current_user.role && current_user.role.can_admin_roles 
       @user = User.find(params[:id])
       @user.role=Role.find(params[:role_id])
@@ -13,19 +13,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @Photo1 = Album.all
+    
     @news = News.find(params[:id])
   end
   
   def select_role
-    @Photo1 = Album.all
+    
     if current_user.userable_type != nil
       redirect_to root_path
     end
   end
   
   def set_role
-    @Photo1 = Album.all
+    
     if current_user.userable_type != nil
       redirect_to root_path
     else
@@ -45,12 +45,12 @@ class UsersController < ApplicationController
 
   
   def show_all
-    @Photo1 = Album.all
+    
     @users = User.order("created_at DESC").paginate(:page => params[:page], :per_page => 2 )
   end
   
   def show
-    @Photo1 = Album.all
+    
     @user = User.find(params[:id])
   end
   

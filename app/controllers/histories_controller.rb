@@ -1,14 +1,15 @@
+#encoding: utf-8
 class HistoriesController < ApplicationController
   def index
-    @Photo1 = Album.all
-    @TitleOfPage = "history"
+    
+    @TitleOfPage = "Абитуриентам"
     @histories = History.all
 
   end
     
     
   def create
-    @Photo1 = Album.all
+    
     if current_user && current_user.role &&  current_user.role.can_add_history
      @histories = History.new(params[:history])
       if @histories.save==false
@@ -22,12 +23,12 @@ class HistoriesController < ApplicationController
   end
     
   def show
-    @Photo1 = Album.all
+    
     @history = History.find(params[:id])
   end
     
 def destroy
-    @Photo1 = Album.all
+    
     if current_user && current_user.role &&  current_user.role.can_delete_history
       @history = History.find(params[:id])
       @history.destroy
