@@ -1,17 +1,15 @@
+#encoding: utf-8
 class ForumController < ApplicationController
   def index
-    @Photo1 = Album.all
-    @TitleOfPage = "Forum"
+    @TitleOfPage = "Форум"
     @sections=Section.all
   end
   def new
-    @Photo1 = Album.all
-    @TitleOfPage = "New Section"
+    @TitleOfPage = "Новый раздел"
   end
   
   def new_theme
-    @Photo1 = Album.all
-    @TitleOfPage = "New theme"
+    @TitleOfPage = "Новая тема"
     @theme=Theme.new  
   end
   

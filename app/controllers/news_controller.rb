@@ -1,17 +1,19 @@
+#encoding: utf-8
 class NewsController < ApplicationController
   def index
+    @TitleOfPage = "Новости"
     @Photo1 = Album.all		
     @news = News.order("created_at DESC").paginate(:page => params[:page], :per_page => 10 )
   end	
   
   def new
+    @TitleOfPage = "Новая новость"
     @Photo1 = Album.all
     @TitleOfPage = "New News"
     @news = News.new
   end
 
   def create
-    @Photo1 = Album.all
     if current_user && current_user.role && current_user.role.can_delete_news
       @news = News.new(params[:news])
       if @news.save
@@ -25,7 +27,6 @@ class NewsController < ApplicationController
   end
   
   def update
-    @Photo1 = Album.all
     if current_user && current_user.role && current_user.role.can_edit_news
       @news = News.find(params[:id])
       if @news.update_attributes(params[:news])
@@ -39,17 +40,16 @@ class NewsController < ApplicationController
   end
   
   def show
-    @Photo1 = Album.all 
     @News = News.find(params[:id])
+    @TitleOfPage = @News.title
   end
   
    def edit
-    @Photo1 = Album.all 
+    @TitleOfPage = "Редактирование новости"
     @news = News.find(params[:id])
   end
   
   def destroy
-    @Photo1 = Album.all
     if current_user && current_user.role && current_user.role.can_delete_news
       @News = News.find(params[:id])
       @News.destroy
