@@ -81,7 +81,7 @@ function GoSlide()
     {
     	i = 0;
     }
-    setTimeout(GoSlide,7000);
+    setTimeout(GoSlide,3000);
 }
 </script>
 </head>
@@ -202,7 +202,31 @@ a:hover{
     font-weight: bolder;
     cursor: pointer;
 }
-
+#NewsBlock{
+    margin-bottom: 15px;
+    width: 505px;
+    float: left;
+    margin-right: 75px;
+    padding: 5px;
+    background: #55b2f8;
+}
+#NewsTitle{
+    margin-bottom: 3px;
+    width: 505px;
+}
+#NewsImage{
+    margin-bottom: 3px;
+    width: 505px;
+}
+#NewsText{
+    margin-bottom: 3px;
+    width: 505px;
+}
+#NewsDate{
+    margin-bottom: 3px;
+    width: 505px;
+    text-align: right;
+}
 </style>
 <div id="UpBG">
 	<center><%= image_tag root_path+"1.jpg"%></center>
@@ -236,9 +260,9 @@ a:hover{
                 <td>
                     <span id="menuBox"><%= link_to "Главная",              root_path %></span>
                 </td>
-                <td>
+                <!--<td>
                     <span id="menuBox"><%= link_to "Новости",              news_index_path %></span>
-                </td>
+                </td>-->
                 <!--<td>
                     <span id="menuBox"> <%= link_to "Афиша", showbill_index_path %></span>
                 </td>-->
@@ -249,9 +273,9 @@ a:hover{
                     <span id="menuBox"><% if current_user && current_user.role && current_user.role.can_admin_roles %><%= link_to "Роли",                roles_path%>
 					<% end %></span>
                 </td>-->
-                <td>
+                <!--<td>
                     <span id="menuBox"><%= link_to "Фотогалерея",          albums_path %></span>
-                </td>
+                </td>-->
                 <td>
                     <span id="menuBox"><%= link_to "Абитуриентам",         histories_path%></span>
                 </td>
@@ -274,28 +298,32 @@ a:hover{
     
     <center>
     
+    
+	<% if url_for(params)=="/news" %>
     <center>
-	<div id="photoWrapper">
+        <div id="photoWrapper">
 
-		<table id="photoTable">
-			<tr>
-				<td id="photoNext">
-					<a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>
-				</td>
-				
-				<td id="photoPhoto">
-			      <center><img id="LAPhoto" src="" /></center>
-			      <script type="text/javascript">GoSlide();</script>
-				</td>
+        <table id="photoTable">
+            <tr>
+                <td id="photoNext">
+                    <a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>
+                </td>
+                
+                <td id="photoPhoto">
+                  <center><img id="LAPhoto" src="" /></center>
+                  <script type="text/javascript">GoSlide();</script>
+                </td>
 
-				<td id="photoNext">
-					<a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>
-				</td>
-			</tr>
-		</table>
+                <td id="photoNext">
+                    <a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>
+                </td>
+            </tr>
+        </table>
 
-	</div>
-	</center>
+        </div>
+    </center>
+    <% end %>
+    
     
     </center>
     
@@ -305,7 +333,7 @@ a:hover{
     
 </div>
 <div id="content">
-		<div style="width: 95%; margin-left: 2.5%;">
+		<div style="width: 95.5%; margin-left: 2%;">
 		<%= yield %>
 		</div> 
 </div>
@@ -315,7 +343,7 @@ a:hover{
 		<center>
 			2012<br/>
 			Эдуард Рубин, Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко,
-			<a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>, <br/> Сергей Бугаенко.
+			<a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>.
 			
 		</center>	
 </div>

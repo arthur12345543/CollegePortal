@@ -1,4 +1,4 @@
-<%=@theme.title%><br>
+<center><%=@theme.title%></center><br>
 <%if @theme.post.last%>
 <%= will_paginate%>
 
@@ -14,10 +14,10 @@
 <%=t.text%>
 </td>
 </tr>
-<tr bgcolor="#ffaaff">
+<tr>
 
 <td>
-Опубликовано: <%=t.created_at%>
+Опубликовано: <%=t.created_at%><br/>
 <%if t.user==current_user || (current_user && current_user.role &&  current_user.role.can_admin_forum) %>
 <% link_to "удалить",   :id=>t.id %>
 <%= link_to 'удалить', { :action => :destroy, :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
@@ -35,7 +35,7 @@
 
 Сообщение:<br>
 <%= f.hidden_field :theme_id, value: @theme.id %>
-<%= f.text_area :text%>
+<%= f.text_area :text, :cols => "100", :rows => "15" %><br>
 <%= f.submit 'сохранить' %>
 <% end %>
 <% end %>

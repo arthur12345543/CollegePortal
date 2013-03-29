@@ -76,7 +76,7 @@ CollegePortal::Application.routes.draw do
 
   resources :lecturers
   
-  root :to => 'home#index'
+  root :to => 'news#index'
 
 
 end
