@@ -1,7 +1,4 @@
 <style type="text/css">
-  td{
-  	padding: 5px;
-  }
 
   #BGC{
 
@@ -23,8 +20,12 @@
 <% if user_signed_in? %>
 <%= link_to 'Добавить пару', new_schedule_path %>
 <%end%>
-
-<table border="1">
+<style type="text/css">
+#sch td{
+  padding: 5px;
+}
+</style>
+<table border="1" id="sch">
 <tr>
 <td></td>
 <td></td>
