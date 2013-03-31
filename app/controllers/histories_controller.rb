@@ -27,6 +27,14 @@ class HistoriesController < ApplicationController
     @history = History.find(params[:id])
   end
     
+def first
+      
+end
+
+def second
+      
+end
+
 def destroy
     
     if current_user && current_user.role &&  current_user.role.can_delete_history

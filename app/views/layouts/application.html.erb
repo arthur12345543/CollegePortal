@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!-- FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=cyrillic,latin&v1' rel='stylesheet' type='text/css'>
 
   <!-- Don't remove this section!!! -->
   		<!-- Arthur Yakovlev Asgard 2012 -->
@@ -88,6 +90,10 @@ function GoSlide()
 <body>
 
 <style>
+font-family: 'Cuprum';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cuprum'), local('Cuprum-Regular'), url(http://themes.googleusercontent.com/static/fonts/cuprum/v4/wHBEZCjwNI3HN2fD1RQJgw.woff) format('woff');
 
 #content{
 	width: 100%;
@@ -119,6 +125,7 @@ function GoSlide()
 
 #footer{
 	width: 100%;
+    margin-top: 10px;
 	margin-bottom: 5px;
 	padding: 5px;
 	background: #55b2f8;
@@ -126,6 +133,22 @@ function GoSlide()
     -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+
+#HisContent{
+    width: 100%;
+}
+
+#HisContentMenu{
+    margin-right: 20px;
+    float: left;
+}
+
+#HisContentContent{
+    float: right;
+    text-align: left;
+    width: 79%;
+    border: solid black 1px;
 }
 
 body{
@@ -193,7 +216,7 @@ a:hover{
     font-size: 13px;
 }
 #UpperMenu{
-    margin-top: 10px;
+    margin-top: 1px;
     width: 100%;
     height: 30px;
     background: #55b2f8;
@@ -322,6 +345,9 @@ a:hover{
     text-decoration: none;
     cursor: pointer;
 }
+#fotb td{
+    padding: 15px;
+}
 </style>
 <div id="UpBG">
 	<center><%= image_tag root_path+"1.jpg"%></center>
@@ -344,6 +370,20 @@ a:hover{
         <!--<td>
         		<a href="">en</a> <a href="">ru</a> <a href="">ua</a>
         </td>-->
+
+        <td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="http://vk.com/kharkivcollege" target="_blank">
+                <img src="vk.png" width="25px" height="25px">
+            </a>
+            <a href="https://www.facebook.com/KharkivCollege" target="_blank">
+                &nbsp;&nbsp;
+            <img src="fb.png" width="25px" height="25px">
+            </a>
+        </td>
     </tr>
     </table>
         
@@ -388,10 +428,11 @@ a:hover{
         </div>
     </center>
     
-    <center>
+   
     
     
 	<% if url_for(params)=="/news" %>
+     <center>
     <center>
         <div id="photoWrapper">
 
@@ -414,14 +455,15 @@ a:hover{
 
         </div>
     </center>
-    <% end %>
-    
-    
     </center>
     
     <center>
     <div id="BottMenu"></div>
     </center>
+    <% end %>
+    
+    
+    
     
 </div>
 <div id="content">
@@ -433,9 +475,53 @@ a:hover{
 <center>
 <div id="footer">
 		<center>
-			2012<br/>
-			Эдуард Рубин, Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко,
-			<a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a>.
+        <table border="0" id="fotb">
+            <tr>
+                <td valign="top">
+                    <div id="FooterLeft">
+                        Харьковский компьютерно-технологический колледж НТУ "ХПИ"<br/>
+                        <center>1947 - <%= Time.now.year %></center><br/>
+                        Контакты:<br/>
+                        (057) 707-68-75 <br/>
+                        (057) 707-68-37<br/>
+                        (057) 707-67-39<br/>
+                        info@ct-college.com.ua<br/>
+                        <a href="http://vk.com/kharkivcollege" target="_blank">
+                            <img src="vk.png" width="25px" height="25px">
+                        </a>
+                        <a href="https://www.facebook.com/KharkivCollege" target="_blank">
+                            &nbsp;&nbsp;
+                            <img src="fb.png" width="25px" height="25px">
+                        </a>
+                    </div>
+                </td>
+                <td valign="top">
+                    Партнеры:
+                    <ul style="text-align: left;">
+                        <li><a href="http://www.microsoft.com/uk-ua/default.aspx" target="_blank">Microsoft</a></li>
+                        <li><a href="http://www.nixsolutions.com/ru/" target="_blank">Nix Solutions</a></li>
+                        <li><a href="http://sigmaukraine.com/" target="_blank">Sigma Ukraine</a></li>
+                        <li><a href="http://www.gameloft.ua/" target="_blank">Gameloft</a></li>
+                        <li><a href="http://hartron.com.ua/" target="_blank">Hartron</a></li>
+                        <li><a href="http://www.kpi.kharkov.ua/ru/" target="_blank">НТУ "ХПИ"</a></li>
+                        <li>Харьковский авиационный завод</li>
+                    </ul>
+                </td>
+                <td valign="top">
+                    Разработчики:
+                    <ul>
+                        <li>Павел Обод</li>
+                        <li>Эдуард Рубин</li>
+                        <li>Оксана Душенковская</li>
+                        <li>Никита Грицюк</li>
+                        <li>Андрей Медведенко</li>
+                        <li>Сергей Бугаенко</li>
+                        <li><a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>    
+            
 			
 		</center>	
 </div>

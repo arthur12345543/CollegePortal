@@ -40,6 +40,9 @@ CollegePortal::Application.routes.draw do
   get "forum/new_theme"  => "forum#new_theme"
   post "forum" => "posts#create"
 
+  get 'histories/first'
+  get 'histories/second'
+
   resources :themes
  
   resources :posts
