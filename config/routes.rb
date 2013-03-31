@@ -1,5 +1,9 @@
 CollegePortal::Application.routes.draw do
 
+  get "admins/index"
+
+  get "admin/index"
+
   devise_for :users
   devise_for :users do 
     get 'sign_out' => 'devise/sessions#destroy'
@@ -75,6 +79,8 @@ CollegePortal::Application.routes.draw do
   resources :data3s
 
   resources :lecturers
+
+  resources :admins
   
   root :to => 'news#index'
 

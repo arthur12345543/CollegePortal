@@ -95,21 +95,47 @@ function GoSlide()
 	padding: 5px;
 }
 
+#content a{
+    color: #55b2f8;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+#content a:active{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#content a:hover{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #footer{
-	width: 95%;
+	width: 100%;
 	margin-bottom: 5px;
 	padding: 5px;
 	background: #55b2f8;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 }
 
 body{
     padding: 0px;
     margin: 0px;
-    background: #85c8f5;
+    background: #E8E8E8;
 }
 
 a{
-    color: #fff;
+    color: #E8E8E8;
 	font-weight: bolder;
     text-decoration: none; 
 }
@@ -168,17 +194,21 @@ a:hover{
 }
 #UpperMenu{
     margin-top: 10px;
-    width: 95%;
+    width: 100%;
     height: 30px;
     background: #55b2f8;
     padding: 5px;
 }
 
 #BottMenu{
-    width: 95%;
+    width: 100%;
     height: 10px;
     background: #4fb1f2;
     padding: 5px;
+
+    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 5px 10px rgba(0,0,0,.8);
 }
 
 #menuBox{
@@ -209,7 +239,32 @@ a:hover{
     margin-right: 75px;
     padding: 5px;
     background: #55b2f8;
+
+    border: solid 1px black; 
+
+    border-radius: 15px;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
+
+#NewsTable{
+    border: solid 1px black; 
+
+    border-radius: 15px;
+
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 #NewsTitle{
     margin-bottom: 3px;
     width: 505px;
@@ -226,6 +281,46 @@ a:hover{
     margin-bottom: 3px;
     width: 505px;
     text-align: right;
+}
+
+#NewsBlock a{
+    color: #E8E8E8;
+    font-weight: bolder;
+    text-decoration: none; 
+}
+#NewsBlock a:active{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;    
+}
+#NewsBlock a:hover{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#TableForum a{
+    color: #E8E8E8;
+    font-weight: bolder;
+    text-decoration: none; 
+}
+#TableForum a:active{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;    
+}
+#TableForum a:hover{
+    color: #000;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>
 <div id="UpBG">
@@ -270,10 +365,6 @@ a:hover{
                     <span id="menuBox"><%= link_to "Форум",                forum_path%></span>
                 </td>
                 <!--<td>
-                    <span id="menuBox"><% if current_user && current_user.role && current_user.role.can_admin_roles %><%= link_to "Роли",                roles_path%>
-					<% end %></span>
-                </td>-->
-                <!--<td>
                     <span id="menuBox"><%= link_to "Фотогалерея",          albums_path %></span>
                 </td>-->
                 <td>
@@ -282,14 +373,15 @@ a:hover{
                 <td>
                     <span id="menuBox"><%= link_to "Файловое хранилище",   uploads_path %></span>
                 </td>
-                <!--<td>
-                    <span id="menuBox"><li><%= link_to "Пользователи",         users_path %></li></span>
-                </td>-->
                 <td>
                     <span id="menuBox"><%= link_to "Расписание",           schedules_path %></span>
                 </td>
                 <td>
                     <span id="menuBox"><%= link_to "Контакты",             contacts_path %></span>
+                </td>
+                <td>
+                    <span id="menuBox"><% if current_user && current_user.role && current_user.role.can_admin_roles %><%= link_to "Admin", admins_path%>
+                    <% end %></span>
                 </td>
             </tr>
             </table>

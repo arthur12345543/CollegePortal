@@ -1,4 +1,4 @@
-<table border='1' width='100%' bgcolor="#55b2f8">
+<table border='1' width='100%' bgcolor="#55b2f8" id="TableForum">
 	<% if current_user && current_user.role &&  current_user.role.can_admin_forum %>
 <%= link_to "Новый раздел", :controller => "forum",:action => :new%><br>
 <%= link_to "Добавить тему", :controller => "forum",:action => :new_theme%>

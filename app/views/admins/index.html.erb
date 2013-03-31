@@ -1,0 +1,27 @@
+<ul>
+	<li>
+	<% if user_signed_in? %>
+		<%= link_to 'Добавить пару', new_schedule_path %>
+	<%end%>
+	</li>
+	<li>
+	<% if user_signed_in? %>
+		<%= link_to 'Добавить замену на сегодня', new_data2_path %>
+	<%end%>
+	</li>
+	<li>
+	<% if user_signed_in? %>
+		<%= link_to 'Добавить замену на завтра', new_data3_path %>
+	<%end%>
+	</li>
+	<li>
+	<% if current_user && current_user.role && current_user.role.can_admin_roles %>
+		<%= link_to "Роли",                roles_path%>
+	<% end %>
+	</li>
+	<li>
+	<% if current_user && current_user.role && current_user.role.can_admin_roles %>
+		<%= link_to "Пользователи",         users_path %>
+	<% end %>
+	</li>
+</ul>
