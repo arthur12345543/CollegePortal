@@ -124,6 +124,7 @@ font-family: 'Cuprum';
 }
 
 #footer{
+	font-size: 12px;
 	width: 100%;
     margin-top: 10px;
 	margin-bottom: 5px;
@@ -419,10 +420,6 @@ a:hover{
                 <td>
                     <span id="menuBox"><%= link_to "Контакты",             contacts_path %></span>
                 </td>
-                <td>
-                    <span id="menuBox"><% if current_user && current_user.role && current_user.role.can_admin_roles %><%= link_to "Admin", admins_path%>
-                    <% end %></span>
-                </td>
             </tr>
             </table>
         </div>
@@ -515,7 +512,6 @@ a:hover{
                     Разработчики:
                     <ul>
                         <li>Павел Обод</li>
-                        <li>Эдуард Рубин</li>
                         <li>Оксана Душенковская</li>
                         <li>Никита Грицюк</li>
                         <li>Андрей Медведенко</li>
