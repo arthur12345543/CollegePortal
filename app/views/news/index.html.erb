@@ -1,30 +1,27 @@
 <div>
 <h1 style="color: #000; font-style: bolder;"><center>Новости</center></h1>
-
-
-
 <% if current_user && current_user.role && current_user.role.can_add_news%>
 <%= link_to 'Создать', new_news_path %>
-<%end%>
 
+<%end%>
 <br>
 <%= will_paginate  %>
-<center>
 <% @news.each do |n| %>
-<div id="NewsBlock">
-<div id="NewsTitle"><center><%= link_to n.title, :controller => "news",:action => :show, :id => n.id %></center></div>
 <center>
+<div id="NewsBlock">
+<div id="NewsTitle"><center><%= link_to n.title,  :controller => "news",:action => :show, :id => n.id%></center></div>
+
 <div id="NewsImage">
 <%if n.picture_file_size != nil%>
-<%= image_tag n.picture (:small)%>
+<%= image_tag n.picture.url(:small), :class=>"imgnews"%>
 <%end%>
 </div>
-</center>
-<div id="NewsText"><%= truncate(n.text, :length => 500)%></div>
+
+<div id="NewsText"><%=raw (truncate(n.text.gsub(/\r\n/, '<p>'), :length => 1200))%></div>
 <div id="NewsDate">Новость создана <%=n.created_at %></div>
 </div>
-<% end %>
 </center>
+<% end %>
 <div style="clear: both;"></div>
 <%= will_paginate %>
 </div>

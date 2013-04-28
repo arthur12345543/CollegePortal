@@ -1,1 +1,17 @@
+<%= form_for Group.new do |f| %>
+ <% if @group.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@group.errors.count, "error") %> Невозможно сохранить группу:
+    </h2>
+    <ul>
+    <% @group.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+название группы:<br>
+<%= f.text_field :title %><br>
 
+<%= f.submit 'сохранить' %>
+<% end %>

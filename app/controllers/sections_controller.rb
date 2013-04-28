@@ -10,7 +10,7 @@ class SectionsController < ApplicationController
       redirect_to forum_path
       end
 
-end
+
   def destroy
     
     if current_user && current_user.role && current_user.role.can_admin_forum
@@ -24,4 +24,5 @@ end
     @Section.destroy
   end
     redirect_to forum_path
+ end
  end

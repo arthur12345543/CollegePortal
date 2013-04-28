@@ -2,532 +2,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @TitleOfPage %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <!-- FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Cuprum&subset=cyrillic,latin&v1' rel='stylesheet' type='text/css'>
-
-  <!-- Don't remove this section!!! -->
-  		<!-- Arthur Yakovlev Asgard 2012 -->
-  		<!-- http://www.allcomputers.16mb.com/ -->
-  <!-- End -->
-  
-  <script type="text/javascript">
-
-  </script>
+<title><%= @TitleOfPage %></title>
 <script type="text/javascript">
-var URLOfPhotos = [
-	<% @Photo1.each do |albums| %>
-	<% albums.photos.each do |al| %>
-		"<%= al.picture.url %>",
-	<% end %>  
-	<% end %>];
-var maxSlide = URLOfPhotos.length;
-var i = 0;
-var plus = 1.0;
-
-function BackSlide()
-{
-	i -= 1;
-	var LAPhoto = document.getElementById('LAPhoto');
-    LAPhoto.src = URLOfPhotos[i]; 
-    if(i<0)
-    {
-    	i = maxSlide;
-    }
-}
-
-function ForwardSlide()
-{
-	i += 1;
-	var LAPhoto = document.getElementById('LAPhoto');
-    LAPhoto.src = URLOfPhotos[i];
-    if(i==maxSlide)
-    {
-    	i = 0;
-    } 
-}
-
-function GoSlide()
-{	
-	var LAPhoto = document.getElementById('LAPhoto');
-
-    for(var g = 0; g <= 100; g++)
-    {
-        plus -= 0.15;
-        LAPhoto.style.opacity = plus;
-        if(plus<=0)
-        {
-        	plus = 0.1;
-        	break;
-        }
-        setTimeout("",100);
-    }
-    LAPhoto.src = URLOfPhotos[i];
-    LAPhoto.style.opacity = 0.1;
-    for(var g = 0; g <= 100; g++)
-    {
-        plus += 0.15;
-        LAPhoto.style.opacity = plus;
-        if(plus>=1.0)
-        {
-        	plus = 1.0;
-        	break;
-        } 
-        setTimeout("",100);
-    }
-    i++;
-    if(i==maxSlide)
-    {
-    	i = 0;
-    }
-    setTimeout(GoSlide,3000);
-}
+  var URLOfPhotos = [
+  <% @Photo1.each do |albums| %>
+    <% albums.photos.each do |al| %>
+      "<%= al.picture.url %>",
+    <% end %>
+  <% end %>];
+  var maxSlide = URLOfPhotos.length;
+  var i = 0;
+  var plus = 1.0;
 </script>
+<%= stylesheet_link_tag"application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+<link href='http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div id="head">
+    <div class="wrap">
+      <center><h1><%= image_tag root_path+"1.jpg"%></h1></center>
+    </div>
+  </div>
 
-<style>
-font-family: 'Cuprum';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cuprum'), local('Cuprum-Regular'), url(http://themes.googleusercontent.com/static/fonts/cuprum/v4/wHBEZCjwNI3HN2fD1RQJgw.woff) format('woff');
+    <div class="wrap" >
 
-#content{
-	width: 100%;
-	margin-bottom: 5px;
-	padding: 5px;
-}
-
-#content a{
-    color: #55b2f8;
-    font-weight: bolder;
-    text-decoration: none;
-}
-
-#content a:active{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#content a:hover{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#footer{
-	font-size: 12px;
-	width: 100%;
-    margin-top: 10px;
-	margin-bottom: 5px;
-	padding: 5px;
-	background: #55b2f8;
-
-    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-}
-
-#HisContent{
-    width: 100%;
-}
-
-#HisContentMenu{
-    margin-right: 20px;
-    float: left;
-}
-
-#HisContentContent{
-    float: right;
-    text-align: left;
-    width: 79%;
-    border: solid black 1px;
-}
-
-body{
-    padding: 0px;
-    margin: 0px;
-    background: #E8E8E8;
-}
-
-a{
-    color: #E8E8E8;
-	font-weight: bolder;
-    text-decoration: none; 
-}
-a:active{
-    color: #000;
-	font-weight: bolder;
-	cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;    
-}
-a:hover{
-    color: #000;
-	font-weight: bolder;
-	cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#photoPhoto{
-    width: 800px;
-    height: 400px;
-}
-
-#photoNext{
-	font-size: 31px;
-}
-
-#UpBG{
-    background: #85c8f5;
-}
-#TaS{
-	 padding: 10px;
-	 margin-left: 20px;
-	 margin-top: -60px;
-}
-#languages{
-    color: #fff;
-    font-weight: bolder;
-    padding-top: 50px;
-    float: right;
-    margin-right: 50px;
-}
-#LeftLogoText{
-    color: #fff;
-    font-weight: bolder;
-    font-size: 20px;
-    text-align: right;
-}
-#RightLogoText{
-    color: #fff;
-    font-weight: bolder;
-    font-size: 20px;
-}
-#txe{
-    font-size: 13px;
-}
-#UpperMenu{
-    margin-top: -1px;
-    width: 100%;
-    height: 30px;
-    background: #55b2f8;
-    padding: 5px;
-}
-
-#BottMenu{
-    width: 100%;
-    height: 10px;
-    background: #4fb1f2;
-    padding: 5px;
-
-    -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,.8);
-    -moz-box-shadow: 0px 5px 10px rgba(0,0,0,.8);
-    box-shadow: 0px 5px 10px rgba(0,0,0,.8);
-}
-
-#menuBox{
-    margin-left: 10px;
-    background: #55b2f8;
-    padding: 5px;
-    color: #fff;
-    font-weight: bolder;
-}
-#menuBox:active{
-    margin-left: 10px;
-    background: #26a3fd;
-    color: #fff;
-    font-weight: bolder;
-    cursor: pointer;
-}
-#menuBox:hover{
-    margin-left: 10px;
-    background: #26a3fd;
-    color: #fff;
-    font-weight: bolder;
-    cursor: pointer;
-}
-#NewsBlock{
-    margin-bottom: 15px;
-    width: 505px;
-    float: left;
-    margin-right: 75px;
-    padding: 5px;
-    background: #55b2f8;
-
-    border: solid 1px black; 
-
-    border-radius: 15px;
-
-    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-#NewsTable{
-    border: solid 1px black; 
-
-    border-radius: 15px;
-
-    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-    
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-#NewsTitle{
-    margin-bottom: 3px;
-    width: 505px;
-}
-#NewsImage{
-    margin-bottom: 3px;
-    width: 505px;
-}
-#NewsText{
-    margin-bottom: 3px;
-    width: 505px;
-}
-#NewsDate{
-    margin-bottom: 3px;
-    width: 505px;
-    text-align: right;
-}
-
-#NewsBlock a{
-    color: #E8E8E8;
-    font-weight: bolder;
-    text-decoration: none; 
-}
-#NewsBlock a:active{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;    
-}
-#NewsBlock a:hover{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#TableForum a{
-    color: #E8E8E8;
-    font-weight: bolder;
-    text-decoration: none; 
-}
-#TableForum a:active{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;    
-}
-#TableForum a:hover{
-    color: #000;
-    font-weight: bolder;
-    cursor: pointer;
-    text-decoration: none;
-    cursor: pointer;
-}
-#fotb td{
-    padding: 20px;
-}
-</style>
-<div id="UpBG">
-	<center><%= image_tag root_path+"1.jpg"%></center>
-	<table id="TaS">
-    <tr>
-        <td>
-         		<% if user_signed_in? %>
-				<% if current_user.userable_type==nil %>
-				<%=link_to 'Укажите тип пользователя!', users_select_role_path %>
-				<% end %>
-				<%= current_user.name+ ' ' + current_user.surname%>
-				&nbsp;&nbsp;
-				<%=link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-				<% else %>
-				<%=link_to 'Войти', new_user_session_path %>
-				&nbsp;&nbsp;
-				<%=link_to 'Регистрация', sign_up_path %>
-				<%end%>
-        </td>
-        <!--<td>
-        		<a href="">en</a> <a href="">ru</a> <a href="">ua</a>
-        </td>-->
-
-        <td>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="http://vk.com/kharkivcollege" target="_blank">
-                <img src="vk.png" width="25px" height="25px">
-            </a>
-            <a href="https://www.facebook.com/KharkivCollege" target="_blank">
-                &nbsp;&nbsp;
-            <img src="fb.png" width="25px" height="25px">
-            </a>
-        </td>
-    </tr>
-    </table>
-        
-    
-    <center>
-        <div id="UpperMenu">
-            <table>
-            <tr>
-                <td>
-                    <span id="menuBox"><%= link_to "Главная",              root_path %></span>
-                </td>
-                <!--<td>
-                    <span id="menuBox"><%= link_to "Новости",              news_index_path %></span>
-                </td>-->
-                <!--<td>
-                    <span id="menuBox"> <%= link_to "Афиша", showbill_index_path %></span>
-                </td>-->
-                <td>
-                    <span id="menuBox"><%= link_to "Форум",                forum_path%></span>
-                </td>
-                <!--<td>
-                    <span id="menuBox"><%= link_to "Фотогалерея",          albums_path %></span>
-                </td>-->
-                <td>
-                    <span id="menuBox"><%= link_to "Абитуриентам",         histories_path%></span>
-                </td>
-                <td>
-                    <span id="menuBox"><%= link_to "Файловое хранилище",   uploads_path %></span>
-                </td>
-                <td>
-                    <span id="menuBox"><%= link_to "Расписание",           schedules_path %></span>
-                </td>
-                <td>
-                    <span id="menuBox"><%= link_to "Контакты",             contacts_path %></span>
-                </td>
-            </tr>
-            </table>
-        </div>
-    </center>
-    
-   
-    
-    
-	<% if url_for(params)=="/news" %>
-     <center>
-    <center>
-        <div id="photoWrapper">
-
-        <table id="photoTable">
-            <tr>
-                <td id="photoNext">
-                    <a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>
-                </td>
+            <ul id="nav">
+              <li><%= link_to "Новости", news_index_path %></li>
+              <li><%= link_to "О колледже", root_path+"content/"+"1" %>
+                <ul>
+                  <li><%= link_to "История", root_path+"content/"+"2" %></li>
+                  <li><%= link_to "Цели и задачи", root_path+"content/"+"3" %></li>
+                  <li><%= link_to "Руководство", root_path+"content/"+"4" %></li>
+                  <li><%= link_to "Преподавательский состав", root_path+"content/"+"5" %></li>
+                  <li><%= link_to "Перечень специальностей", root_path+"content/"+"6" %></li>
+                  <li><%= link_to "Краткое описание дисциплин", root_path+"content/"+"7" %></li>
+                  <li><%= link_to "Практика студентов", root_path+"content/"+"8" %></li>
+                  <li><%= link_to "Общежития", root_path+"content/"+"9" %></li>
+                  <li><%= link_to "Профком", root_path+"content/"+"10" %></li>
+                </ul>
+              </li>
+              <li><%= link_to "Абитуриенту", root_path+"content/"+"11" %>
+                <ul>
+                  <li><%= link_to "Правила приема", root_path+"content/"+"12" %></li>
+                  <li><%= link_to "Приемная комиссия", root_path+"content/"+"13" %></li>
+                  <li><%= link_to "Документы", root_path+"content/"+"14" %></li>
+                  <li><%= link_to "Оформить заявление", root_path+"content/"+"15" %></li>
+                </ul>
+              </li>
+              <li><%= link_to "Учебные материалы", uploads_path%></li>
+              <li><%= link_to "Pасписание", schedule_path %></li>
+              <li><%= link_to "Форум", forum_path %></li>
+              <li><%= link_to "Партнёры", partners_path %></li>
+              <li><%= link_to "Контакты", contacts_path %></li>
+              <% if user_signed_in? %>
+                <li><%=link_to ("Здравствуйте, "+ current_user.name+ ' ' + current_user.surname+", нажмите тут чтобы выйти"), destroy_user_session_path, :method => :delete %></li>
+              <% else %>
                 
-                <td id="photoPhoto">
-                  <center><img id="LAPhoto" src="" /></center>
-                  <script type="text/javascript">GoSlide();</script>
-                </td>
+                <li><%=link_to "Регистрация", sign_up_path %></li>
+                <li> <a style="cursor: pointer;"onclick="document.getElementById('parent_popup').style.display='block';">Войти</a></li>
+                
+               
+              <%end%> 
+            </ul> 
 
-                <td id="photoNext">
-                    <a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>
-                </td>
-            </tr>
-        </table>
-
-        </div>
-    </center>
-    </center>
-    
+  
+  <!--<% if url_for(params)=="/news" %>
     <center>
-    <div id="BottMenu"></div>
+     <!-- <div id="photoWrapper">
+        <table id="photoTable">
+          <tr>
+            <td id="photoNext">
+            <!--<a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>!
+            </td>
+            <td id="photoPhoto">
+              <center><img id="LAPhoto" src="" width='320' height='240'/></center>
+              <script type="text/javascript">GoSlide();</script>
+            </td>
+            <td id="photoNext">
+              <!--<a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>!
+            </td>
+          </tr>
+        </table>
+      </div>
     </center>
-    <% end %>
-    
-    
-    
-    
-</div>
-<div id="content">
-		<div style="width: 95.5%; margin-left: 2%;">
-		<%= yield %>
-		</div> 
-</div>
+    <div id="BottMenu"></div>
+  <% end %>-->
+  </div>
+  <div id="content">
+  <br>
+    <center>
+      <%= yield %>
+    </center>
+    <br>
+  </div>
 
-<center>
-<div id="footer">
-		<center>
-            <center>Харьковский компьютерно-технологический колледж НТУ "ХПИ"<br/>
-                        1947 - <%= Time.now.year %></center><br/>
-        <table border="0" id="fotb">
-            <tr>
-                <td valign="top">
-                    Наш адрес:<br/>
-                    г.Харьков, 61002, вул.Красина, 4.
-                </td>
-                <td valign="top">
-                    <div id="FooterLeft">
-                        Контакты:<br/>
-                        (057) 707-68-75 <br/>
-                        (057) 707-68-37<br/>
-                        (057) 707-67-39<br/>
-                        info@ct-college.com.ua<br/>
-                        <a href="http://vk.com/kharkivcollege" target="_blank">
-                            <img src="vk.png" width="25px" height="25px">
-                        </a>
-                        <a href="https://www.facebook.com/KharkivCollege" target="_blank">
-                            &nbsp;&nbsp;
-                            <img src="fb.png" width="25px" height="25px">
-                        </a>
-                    </div>
-                </td>
-                <td valign="top">
-                    Партнеры:
-                    <ul style="text-align: left;">
-                        <li><a href="http://www.microsoft.com/uk-ua/default.aspx" target="_blank">Microsoft</a></li>
-                        <li><a href="http://www.nixsolutions.com/ru/" target="_blank">Nix Solutions</a></li>
-                        <li><a href="http://sigmaukraine.com/" target="_blank">Sigma Ukraine</a></li>
-                        <li><a href="http://www.gameloft.ua/" target="_blank">Gameloft</a></li>
-                        <li><a href="http://hartron.com.ua/" target="_blank">Hartron</a></li>
-                        <li><a href="http://www.kpi.kharkov.ua/ru/" target="_blank">НТУ "ХПИ"</a></li>
-                        <li>Харьковский авиационный завод</li>
-                    </ul>
-                </td>
-                <td valign="top">
-                    Разработчики:
-                    <ul>
-                        <li>Павел Обод</li>
-                        <li>Оксана Душенковская</li>
-                        <li>Никита Грицюк</li>
-                        <li>Андрей Медведенко</li>
-                        <li>Сергей Бугаенко</li>
-                        <li><a href="http://allcomputers.16mb.com/" target="_blank">Arthur Yakovlev (Asgard)</a></li>
-                    </ul>
-                </td>
-
-            </tr>
-        </table>    
-            
-			
-		</center>	
-</div>
-</center>
-
+  <div id="footer">
+    <center>Харьковский компьютерно-технологический колледж НТУ "ХПИ" 1947 - <%= Time.now.year %></center>
+    <center>Контакты: (057) 707-68-75, (057) 707-68-37, (057) 707-67-39, info@ct-college.com.ua
+    <a href="http://vk.com/kharkivcollege" target="_blank">
+      <%= image_tag root_path+"vk.png", :width=>25, :height=>25%>
+    </a>
+    <a href="https://www.facebook.com/KharkivCollege" target="_blank">
+      <%= image_tag root_path+"fb.png", :width=>25, :height=>25%>
+    </a>
+    </center>
+   <center>
+      Разработчики:Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко, Сергей Бугаенко, Arthur Yakovlev
+    </center>
+   
+  </div>
+<%if !current_user %>
+ <div id="parent_popup">
+    <div id="popup">
+      Форма входа
+      <%= form_for("user", :url => user_session_path) do |f| %>
+	e-mail:<br>
+	<%= f.text_field :email %><br>
+	Пароль:<br>
+	<%= f.password_field :password %><br>
+	<%= f.check_box :remember_me %>Запомнить меня:<br>  
+	<%= f.submit 'Войти' %><br>
+	<p style="cursor: pointer;" onclick="document.getElementById('parent_popup').style.display='none';">Отмена</p>
+      <% end %>  
+    </div>
+  </div>
+ <% end %>  
 </body>
 </html>
 

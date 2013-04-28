@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318155909) do
+ActiveRecord::Schema.define(:version => 20130424133651) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -20,54 +20,32 @@ ActiveRecord::Schema.define(:version => 20130318155909) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "audiences", :force => true do |t|
-    t.text     "title"
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "custom_pages", :force => true do |t|
+    t.string   "name"
+    t.text     "html_code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "count_lessons", :force => true do |t|
-    t.integer  "count"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "data1s", :force => true do |t|
-    t.integer  "group_id"
-    t.integer  "day_id"
-    t.integer  "audience_id"
-    t.integer  "lesson_id"
-    t.integer  "number_lesson"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "flasher"
-    t.string   "lecturer_id"
-  end
-
-  create_table "data2s", :force => true do |t|
-    t.integer  "day_id"
-    t.integer  "number_lesson"
-    t.integer  "group_id"
-    t.integer  "lesson_id"
-    t.integer  "lecture_id"
-    t.integer  "audience_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "data3s", :force => true do |t|
-    t.integer  "day_id"
-    t.integer  "number_lesson"
-    t.integer  "group_id"
-    t.integer  "lesson_id"
-    t.integer  "lecture_id"
-    t.integer  "audience_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
   end
 
   create_table "days", :force => true do |t|
-    t.text     "title"
+    t.text     "name"
+    t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -90,16 +68,21 @@ ActiveRecord::Schema.define(:version => 20130318155909) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "lecturers", :force => true do |t|
-    t.text     "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "lessons", :force => true do |t|
-    t.text     "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "even_room",           :default => ""
+    t.text     "even_lesson",         :default => ""
+    t.text     "even_teacher",        :default => ""
+    t.text     "odd_room",            :default => ""
+    t.text     "odd_lesson",          :default => ""
+    t.text     "odd_teacher",         :default => ""
+    t.text     "replacement_room",    :default => ""
+    t.text     "replacement_lesson",  :default => ""
+    t.text     "replacement_teacher", :default => ""
+    t.date     "replacement_date",    :default => '2000-01-01'
+    t.boolean  "double_lesson",       :default => false
+    t.integer  "day_id"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   create_table "news", :force => true do |t|
@@ -111,6 +94,17 @@ ActiveRecord::Schema.define(:version => 20130318155909) do
     t.datetime "updated_at",           :null => false
     t.string   "title"
     t.text     "text"
+  end
+
+  create_table "partners", :force => true do |t|
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "photos", :force => true do |t|
@@ -135,19 +129,22 @@ ActiveRecord::Schema.define(:version => 20130318155909) do
   create_table "roles", :force => true do |t|
     t.string  "name"
     t.string  "information"
-    t.boolean "can_add_files",       :default => true
-    t.boolean "can_delete_files",    :default => true
-    t.boolean "can_add_news",        :default => true
-    t.boolean "can_delete_news",     :default => true
-    t.boolean "can_add_showbill",    :default => true
-    t.boolean "can_delete_showbill", :default => true
-    t.boolean "can_add_history",     :default => true
-    t.boolean "can_delete_history",  :default => true
-    t.boolean "can_post_forum",      :default => true
-    t.boolean "can_admin_forum",     :default => true
-    t.boolean "can_manage_albums",   :default => true
-    t.boolean "can_admin_roles",     :default => true
-    t.boolean "can_edit_news",       :default => false
+    t.boolean "can_add_files",         :default => true
+    t.boolean "can_delete_files",      :default => true
+    t.boolean "can_add_news",          :default => true
+    t.boolean "can_delete_news",       :default => true
+    t.boolean "can_add_showbill",      :default => true
+    t.boolean "can_delete_showbill",   :default => true
+    t.boolean "can_add_history",       :default => true
+    t.boolean "can_delete_history",    :default => true
+    t.boolean "can_post_forum",        :default => true
+    t.boolean "can_admin_forum",       :default => true
+    t.boolean "can_manage_albums",     :default => true
+    t.boolean "can_admin_roles",       :default => true
+    t.boolean "can_edit_news",         :default => false
+    t.boolean "can_edit_schedule",     :default => false
+    t.boolean "can_edit_partners",     :default => false
+    t.boolean "can_edit_custom_pages", :default => false
   end
 
   create_table "sections", :force => true do |t|

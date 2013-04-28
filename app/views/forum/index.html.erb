@@ -1,21 +1,21 @@
 <div style="margin-top: 40px;"></div>
-<table border='1' width='100%' bgcolor="#55b2f8" id="TableForum">
-	<% if current_user && current_user.role &&  current_user.role.can_admin_forum %>
+<table border='0' width='100%' bgcolor="#55b2f8" id="TableForum">
+<% if current_user && current_user.role &&  current_user.role.can_admin_forum %>
 <%= link_to "Новый раздел", :controller => "forum",:action => :new%><br>
 <%= link_to "Добавить тему", :controller => "forum",:action => :new_theme%>
 <% end %>
 <% @sections.each do |n| %>
-  <tr  height='50' bgcolor="#55b2f8">
+  <tr  height='50' bgcolor="#85c8f5">
 
     <td>
-    	<center><%= n.title %></center><br/>
+    	<center><%= n.title %> 
     	<% if current_user && current_user.role &&  current_user.role.can_admin_forum %>
-    	<%= link_to 'удалить', { :action => :destroy, :controller => "sections", :id => n.id }, :method => :delete, :confirm => 'Are you sure?' %>
+    	<%= link_to 'удалить', { :action => :destroy, :controller => "sections", :id => n.id }, :method => :delete, :confirm => 'Are you sure?' %></center>
     	<% end %>
     </td>
   </tr>
     <%n.theme.each do |t|%>
-    <tr  height='20' bgcolor="#85c8f5">
+    <tr  height='20' bgcolor="#55b2f8">
     <td><%= link_to t.title, :controller => "posts",:action => :show_all, :id => t.id %>
     	<br/><% if current_user && current_user.role &&  current_user.role.can_admin_forum %>
      <%= link_to 'удалить', { :action => :destroy, :controller => "themes", :id => t.id }, :method => :delete, :confirm => 'Are you sure?' %>
@@ -24,4 +24,7 @@
     <%end%>
 <% end %>
 </table> 
+<% if !current_user || !current_user.role.can_post_forum%>
+Вы вошли как незарегестрированный пользователь, пожалуйста <%= link_to 'войдите', new_user_session_path  %> или <%= link_to 'зарегестрируйтесь', user_registration_path  %> для использования форума.
+<%end%>
 

@@ -4,7 +4,7 @@
 <%= will_paginate%>
 
 <% @theme.post.each do|t|%>
-<table border="1" width="100%">
+<table border="0" width="100%" bgcolor="white">
 <tr>
 <td rowspan="2"  width="150" align="center">
 <%if t.user!=nil%><%= t.user.name+" "+t.user.surname%><%else%>Гость<%end%>

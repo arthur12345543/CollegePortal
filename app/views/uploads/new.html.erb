@@ -1,7 +1,7 @@
 <%= form_for Upload.new do |f| %>
-Title:<br>
+Название файла:<br>
 <%= f.text_field :title  %><br>
-Archive:<br>
+Файл:<br>
 <%= f.file_field :file  %><br>
 <%= f.submit 'сохранить' %>
 <% end %>

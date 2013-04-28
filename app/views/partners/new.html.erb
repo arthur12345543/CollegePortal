@@ -1,0 +1,21 @@
+<%= form_for Partner.new do |f| %>
+ <% if @Partner.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@Partner.errors.count, "error") %> ошибок было допущенно:</h2>
+    <ul>
+    <% @Partner.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+Название компинии/предприятия:<br>
+<%= f.text_field :name %><br>
+Описание:<br>
+<%= f.text_area :text%><br>
+Лого:<br>
+<%= f.file_field :picture %><br>
+
+<%= f.submit 'сохранить' %>
+<% end %>
+ 

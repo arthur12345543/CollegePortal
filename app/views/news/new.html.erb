@@ -10,11 +10,11 @@
     </ul>
   </div>
   <% end %>
-Title:<br>
+Название новости:<br>
 <%= f.text_field :title %><br>
-Photo:<br>
+Прикреплённая фотография:
 <%= f.file_field :picture %><br>
-Text:<br>
-<%= f.text_area :text%>
-<%= f.submit 'сохранить' %>
+Текст новости<br>
+<%= f.text_area :text%><br>
+<%= f.submit 'Сохранить' %><br><br>
 <% end %>

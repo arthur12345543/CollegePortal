@@ -1,5 +1,7 @@
 CollegePortal::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   get "admins/index"
 
   get "admin/index"
@@ -33,18 +35,30 @@ CollegePortal::Application.routes.draw do
   delete "history/:id" => "histories#destroy"
   get "histories/show/:id" => "histories#show"
 
+  get "schedule" => "schedule#index"
+  get "schedule/edit/:id" => "schedule#edit"
+  get "schedule/replacement/:id" => "schedule#add_replacement"
+  put "schedule/update" => "schedule#update"
+  put "schedule/replacement" => "schedule#replacement_save"
   
   get "forum" => "forum#index"
   get "forum/topic/:id" => "posts#show_all"
   get "forum/new" => "forum#new"
   get "forum/new_theme"  => "forum#new_theme"
   post "forum" => "posts#create"
+  
+  get "content/:id"  => "content#index"
+  
+  
+  
 
   get 'histories/first'
   get 'histories/second'
 
   resources :themes
- 
+  
+  resources :partners
+  
   resources :posts
   
   resources :sections
@@ -56,30 +70,22 @@ CollegePortal::Application.routes.draw do
   resources :showbill
   
   resources :albums
+  
+  resources :content
 
   resources :photos
   
   resources :uploads
   
-  resources :schedules
-
   resources :count_lessons
 
   resources :lessons
 
   resources :groups
 
-  resources :days
-
   resources :audiences
   
   resources :contacts
-
-  resources :data1s
-
-  resources :data2s
-
-  resources :data3s
 
   resources :lecturers
 

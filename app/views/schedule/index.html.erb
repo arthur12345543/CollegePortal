@@ -1,0 +1,122 @@
+<div>
+<h1 style="color: #000; font-style: bolder;"><center>Расписание</center></h1>
+<br>
+<table border='0' height='30'>
+<tr>
+<td width='80' bgcolor="#50c878">
+</td>
+<td>-Пара по чётным неделям 
+</td>
+<td width='80' bgcolor="#eee6a3">
+</td>
+<td >-Пара по нечётным неделям
+</td>
+<td  width='80' bgcolor="#cd7f32">
+</td>
+</td>
+<td >-Пара назначена по замене
+</tr>
+</table>
+
+<%@groups.each do|group|%>
+<center>
+<a href="javascript:sh('<%=group.id%>')"><%=group.title%> </a>
+<div id="blabla_<%=group.id%>" style="display:none">
+<table border='0' cellspacing='1' align="center" >
+<tr>
+<td>
+</td>
+<td colspan='2' bgcolor="#7d95e1" width='300'>
+1 Пара
+</td>
+<td colspan='2' bgcolor="#7d95e1" width='300'>
+2 Пара
+</td>
+<td colspan='2' bgcolor="#7d95e1" width='300'>
+3 Пара
+</td>
+<td colspan='2' bgcolor="#7d95e1" width='300'>
+4 Пара
+</td>
+
+</tr>
+<%
+@a=true
+@b=false
+%>         
+<%group.day.order("id ASC").each do|day|%>
+<%@a=!@a%>
+<tr>
+<td bgcolor="#7d95e1"  width='120' align='center'>
+<%=day.name%> 
+</td>
+<%day.lesson.order("id ASC").each do|lesson|%>
+<%@b=!@b%>
+<%if lesson.replacement_date+1<Date.current%>
+<%if lesson.double_lesson%>
+<td bgcolor="#50c878" width='150'>
+<%=lesson.even_lesson%><br>
+<%if lesson.even_room?%> Аудитория: <%=lesson.even_room%><br><%end%>
+<%=lesson.even_teacher%><br>
+</td>
+<td bgcolor="#eee6a3" width='150'>
+<%=lesson.odd_lesson%><br>
+<%if lesson.even_room?%> Аудитория: <%=lesson.even_room%><br><%end%>
+<%=lesson.odd_teacher%>
+<% if current_user && current_user.role && current_user.role.can_edit_schedule%>
+<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %>
+<br><%= link_to 'Добавить замену', :action => :add_replacement, :id => lesson.id %>
+<%end%>
+</td>
+<%else%>
+<%if @a&&!@b||!@a&&@b%>
+<td colspan='2' bgcolor = "#a3c6ed" width='300'>
+<%else%>
+<td colspan='2' bgcolor = "#90beeb" width='300'>
+<%end%>
+<%=lesson.even_lesson%><br>
+<%if lesson.even_room?%> Аудитория: <%=lesson.even_room%><br><%end%>
+<%=lesson.even_teacher%>
+<% if current_user && current_user.role && current_user.role.can_edit_schedule%>
+<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %> 
+<br><%= link_to 'Добавить замену', :action => :add_replacement, :id => lesson.id %>
+<%end%>
+</td>
+<%end%>
+<%else%>
+<td colspan='2' bgcolor = "#cd7f32" width='300'>
+<%=lesson.replacement_lesson%><br>
+<%=lesson.replacement_room%><br>
+<%=lesson.replacement_teacher%>
+<% if current_user && current_user.role && current_user.role.can_edit_schedule%>
+<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %> 
+<br><%= link_to 'изменить замену', :action => :add_replacement, :id => lesson.id %>
+<%end%>
+<%end%>
+<%end%>
+</tr>
+<%end%>
+
+</table>
+
+<br>
+<% if current_user && current_user.role && current_user.role.can_edit_schedule%>
+<%= link_to 'Удалить группу', { :controller => :groups, :action => :destroy, :id => group.id }, :method => :delete, :confirm => 'Вы уверены?' %>
+<%end%>
+</div>
+</center>
+
+
+
+<%end%>
+<% if current_user && current_user.role && current_user.role.can_edit_schedule%>
+<%= link_to 'Добавить группу', :action => :new, :controller => :groups %>
+<%end%>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
