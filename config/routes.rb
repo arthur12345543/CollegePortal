@@ -23,7 +23,7 @@ CollegePortal::Application.routes.draw do
   get "users/select_role"
   get "users" => "users#show_all"
   get "users/:id"  => "users#show" 
-  get "users/SetPrivateRules/:id/:role_id"  => "users#chenge_private_role" 
+  post "users/SetPrivateRules/:id/:role_id"  => "users#chenge_private_role" 
   
   get "roles" => "roles#index"
   get "roles/new"
@@ -31,9 +31,6 @@ CollegePortal::Application.routes.draw do
   delete "roles" => "roles#destroy"
 
 
-  get "histories" => "histories#index"
-  delete "history/:id" => "histories#destroy"
-  get "histories/show/:id" => "histories#show"
 
   get "schedule" => "schedule#index"
   get "schedule/edit/:id" => "schedule#edit"
@@ -65,10 +62,6 @@ CollegePortal::Application.routes.draw do
 
   resources :news
 
-  resources :histories
-
-  resources :showbill
-  
   resources :albums
   
   resources :content
