@@ -13,29 +13,7 @@
 //= require ckeditor/init
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-function showNews()
-{
-	document.getElementById('homeNewsShowbill').style.display = "none";
-	document.getElementById('homeNews').style.display = "inline-block";
-}
 
-function showBill()
-{
-	document.getElementById('homeNews').style.display = "none";
-	document.getElementById('homeNewsShowbill').style.display = "inline-block";
-}
-
-function BackSlide()
-{
-	i -= 1;
-	var LAPhoto = document.getElementById('LAPhoto');
-    LAPhoto.src = URLOfPhotos[i]; 
-    if(i<0)
-    {
-    	i = maxSlide;
-    }
-}
 
 function ForwardSlide()
 {
@@ -95,21 +73,6 @@ $(document).ready(function() {
 	});
 	
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   $(document).ready(function(){  
     $('form[data-remote]').bind("ajax:before", function(){

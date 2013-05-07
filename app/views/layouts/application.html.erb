@@ -3,17 +3,7 @@
 <html>
 <head>
 <title><%= @TitleOfPage %></title>
-<script type="text/javascript">
-  var URLOfPhotos = [
-  <% @Photo1.each do |albums| %>
-    <% albums.photos.each do |al| %>
-      "<%= al.picture.url %>",
-    <% end %>
-  <% end %>];
-  var maxSlide = URLOfPhotos.length;
-  var i = 0;
-  var plus = 1.0;
-</script>
+
 <%= stylesheet_link_tag"application", :media => "all" %>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
@@ -30,12 +20,12 @@
 
             <ul id="nav">
               <li><%= link_to "Новости", news_index_path %></li>
-              <li><%= link_to "О колледже", root_path+"content/"+"1" %>
+              <li><%= link_to "О колледже", "#" %>
                 <ul>
                   <li><%= link_to "История", root_path+"content/"+"2" %></li>
                   <li><%= link_to "Цели и задачи", root_path+"content/"+"3" %></li>
                   <li><%= link_to "Руководство", root_path+"content/"+"4" %></li>
-                  <li><%= link_to "Преподавательский состав", root_path+"content/"+"5" %></li>
+                  <!--<li><%= link_to "Преподавательский состав", root_path+"content/"+"5" %></li>-->
                   <li><%= link_to "Перечень специальностей", root_path+"content/"+"6" %></li>
                   <li><%= link_to "Краткое описание дисциплин", root_path+"content/"+"7" %></li>
                   <li><%= link_to "Практика студентов", root_path+"content/"+"8" %></li>
@@ -43,7 +33,7 @@
                   <li><%= link_to "Профком", root_path+"content/"+"10" %></li>
                 </ul>
               </li>
-              <li><%= link_to "Абитуриенту", root_path+"content/"+"11" %>
+              <li><%= link_to "Абитуриенту", "#"%>
                 <ul>
                   <li><%= link_to "Правила приема", root_path+"content/"+"12" %></li>
                   <li><%= link_to "Приемная комиссия", root_path+"content/"+"13" %></li>

@@ -9,9 +9,5 @@ class CreatePartners < ActiveRecord::Migration
     change_table:roles do |t|
       t.boolean :can_edit_partners, :default => false
     end
-    
-    @a=Role.find(2)
-    @a.can_edit_partners = true
-    @a.save
   end
 end
