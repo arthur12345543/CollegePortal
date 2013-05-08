@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226112928) do
+ActiveRecord::Schema.define(:version => 20140226112931) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(:version => 20140226112928) do
     t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "email",                                :null => false
+    t.string   "name_surname",                         :null => false
+    t.text     "message",                              :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "served",            :default => false
+    t.boolean  "reply_is_required", :default => false
   end
 
   create_table "forum_categories", :force => true do |t|
@@ -138,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20140226112928) do
     t.boolean "can_edit_schedule",     :default => false
     t.boolean "can_edit_partners",     :default => false
     t.boolean "can_edit_custom_pages", :default => false
+    t.boolean "can_admin_feedbacks",   :default => false
   end
 
   create_table "sections", :force => true do |t|

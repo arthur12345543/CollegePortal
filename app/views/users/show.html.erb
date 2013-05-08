@@ -21,7 +21,7 @@
 <% Role.all.each do|t| %>
 <tr>
 <td>
-<%=link_to t.name, :action=>"chenge_private_role", :id=>@user.id, :role_id=>t.id %>
+<%=link_to t.name, {:action=>"chenge_private_role", :id=>@user.id, :role_id=>t.id}, :method => :post %>
 </td>
 </tr>
 <% end %>

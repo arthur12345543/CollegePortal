@@ -1,0 +1,31 @@
+<% @a=1%> 
+<table border='0' width=100% cellspacing='0'>
+<% @feedbacks.each do |t| %>
+<% @a=@a+1%> 
+  <tr bgcolor="  
+  <%if @a%2 != 0 %>
+   bbcaef
+  <% else %>
+  aacdff
+  <%end%>
+  ">
+  <td>
+  <%=t.email%>
+  </td>
+  <td>
+  <%=t.name_surname%>
+  </td>
+  </tr>
+  <tr bgcolor="  
+  <%if @a%2 != 0 %>
+   bbcaef
+  <% else %>
+  aacdff
+  <%end%>
+  ">
+  <td colspan='2' align='center'>
+    <%=t.message%>
+  </td>
+  </tr>
+<% end %>
+</table>

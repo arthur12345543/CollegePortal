@@ -10,7 +10,6 @@ class RolesController < ApplicationController
   end
   
   def new
-    
     @TitleOfPage = "New News"
   end
 
@@ -26,8 +25,15 @@ class RolesController < ApplicationController
   def destroy
     
     if current_user && current_user.role && current_user.role.can_admin_roles 
-      @Role = Role.find(params[:id])
+       @Role = Role.find(params[:id])
+      @Role.user.all.each do|t|
+        @a=t
+        @a.role_id=1
+        @a.save
+      end
+
       @Role.destroy
+      
     end
     redirect_to :action => :index
   end

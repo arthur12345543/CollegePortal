@@ -19,7 +19,7 @@ class ContentController < ApplicationController
   end
   
   def edit
-    @TitleOfPage = "Редактирование странице"
+    @TitleOfPage = "Редактирование страницы"
     @CustomPage= CustomPage.find(params[:id])
   end
 end

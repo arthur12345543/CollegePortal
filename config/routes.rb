@@ -57,6 +57,10 @@ CollegePortal::Application.routes.draw do
   resources :partners
   
   resources :posts
+
+  resources :feedbacks
+  get "feedback/done" => "feedbacks#done" 
+  get "feedback/all" => "feedbacks#show_all" 
   
   resources :sections
 

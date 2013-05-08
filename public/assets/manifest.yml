@@ -3,9 +3,8 @@ rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 ru.png: ru-e67443fc173e947f8b0fcaf6c61ae640.png
 ua.png: ua-835764d3742bd7bf77dae1b0cb906ffb.png
 us.png: us-dd753fd4a3ec02e5de9a401c2efc4153.png
-application.js: application-4f9a954125f498182005facde0d20f28.js
+application.js: application-ad4105d707661da4f5624bd01bcb6b34.js
 application.css: application-7f9c75d62afaa3a0130b72bd17e49f79.css
-jquery.min.map: jquery.min-0633f0a59e3d0cd55ac3518f228b2893.map
 ckeditor/application.js: ckeditor/application-83e6bb7625a30fc6ca17519f728f5381.js
 ckeditor/config.js: ckeditor/config-2c31754a73691133128f1ba1d712a65b.js
 ckeditor/filebrowser/images/gal_add.jpg: ckeditor/filebrowser/images/gal_add-8aa905c95fad3086b6c3fc06bfb5b6d5.jpg
