@@ -10,12 +10,8 @@ class FeedbacksController < ApplicationController
   end
 
   def new
-    if current_user && current_user.role && current_user.role.can_admin_feedbacks
       @TitleOfPage = "Сообщение администрации сайта"
       @feedback = Feedback.new
-    else
-      redirect_to root_path
-    end
   end
 
   def done

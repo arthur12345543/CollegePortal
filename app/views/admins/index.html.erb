@@ -7,7 +7,6 @@
   <div id="blabla_1" style="display:none;  background: #fff; width: 200px;">
  <%CustomPage.all.each do|page|%>
   <%=link_to page.name, :controller=>"content",:action => :edit, :id=>page.id%><br>
-
 <%end%>
 </div>
 <%end%>
@@ -15,6 +14,5 @@
 <% if current_user && current_user.role && current_user.role.can_admin_roles %>
   <%= link_to "Роли",                roles_path%><br>
 <% end %>
-
 <%= link_to "Обратная связь", feedback_all_path%><br>
   
