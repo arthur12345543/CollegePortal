@@ -16,6 +16,6 @@
 Ваш электронный адресс<br>
 <%= f.email_field :email %><br>
 Текст cooбщения<br>
-<%= f.text_area :message%><br>
+<%= f.text_area :message, :cols=>'150', :rows=>'7'%><br>
 <%= f.submit 'Отправить' %><br><br>
 <% end %>

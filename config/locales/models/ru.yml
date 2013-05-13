@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      feedback:
+        message: "Отправляемое сообщение"
+        name_surname: 'Поле "Ваше имя и фамилия"'
+      # will translate User attribute "login" as "Handle"

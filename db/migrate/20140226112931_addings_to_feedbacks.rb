@@ -6,7 +6,9 @@ class AddingsToFeedbacks < ActiveRecord::Migration
     change_table:feedbacks do |t|
       t.boolean :served, :default => false
     end
-    Role.find(2).update_attributes(:can_admin_feedbacks=>true)
+    @a=Role.find(2)
+    @a.can_admin_feedbacks=true
+    @a.save
   end
 
   def down
