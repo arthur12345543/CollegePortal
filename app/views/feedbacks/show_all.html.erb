@@ -1,30 +1,20 @@
-<% @a=1%> 
-<table border='0' width=100% cellspacing='0'>
+<table  width='90%' cellspacing='3' style='word-wrap: break-word;'>
 <% @feedbacks.each do |t| %>
-<% @a=@a+1%> 
   <tr bgcolor="  
-  <%if @a%2 != 0 %>
+  <%if t.served %>
    bbcaef
   <% else %>
   aacdff
   <%end%>
   ">
   <td>
-  <%=t.email%>
-  </td>
-  <td>
-  <%=t.name_surname%>
-  </td>
-  </tr>
-  <tr bgcolor="  
-  <%if @a%2 != 0 %>
-   bbcaef
-  <% else %>
-  aacdff
-  <%end%>
-  ">
-  <td colspan='2' align='center'>
-    <%=t.message%>
+  Написал: <%=t.name_surname%>, Адрес: <%=t.email%>   
+    <center><%=t.message%>
+    <%if !t.served %>
+      <br>
+      <%= button_to "Отметить как прочитанное",:action=>:served,:id=>t.id%>
+    <%end%>
+    </center>
   </td>
   </tr>
 <% end %>

@@ -14,4 +14,7 @@
 <%= link_to "Фотогалерея",          albums_path %><br>
 <% if current_user && current_user.role && current_user.role.can_admin_roles %>
   <%= link_to "Роли",                roles_path%><br>
-  <% end %>
+<% end %>
+
+<%= link_to "Обратная связь", feedback_all_path%><br>
+  

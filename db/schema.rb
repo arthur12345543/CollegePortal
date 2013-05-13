@@ -51,13 +51,12 @@ ActiveRecord::Schema.define(:version => 20140226112931) do
   end
 
   create_table "feedbacks", :force => true do |t|
-    t.string   "email",                                :null => false
-    t.string   "name_surname",                         :null => false
-    t.text     "message",                              :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.boolean  "served",            :default => false
-    t.boolean  "reply_is_required", :default => false
+    t.string   "email",                           :null => false
+    t.string   "name_surname",                    :null => false
+    t.text     "message",                         :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "served",       :default => false
   end
 
   create_table "forum_categories", :force => true do |t|
@@ -67,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20140226112931) do
 
   create_table "groups", :force => true do |t|
     t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "histories", :force => true do |t|
+    t.text     "title"
+    t.text     "text"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
