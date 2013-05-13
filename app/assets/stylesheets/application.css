@@ -15,6 +15,10 @@ html, body {
     height: 100%;
     word-wrap: break-word;
 }
+textarea
+{
+     resize:none
+}
 
 #content a{
     color: #55b2f8;

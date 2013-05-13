@@ -2,7 +2,13 @@
 <%= form_for Feedback.new do |f| %>
  <% if @feedback.errors.any? %>
   <div id="errorExplanation">
-    <h2><%= @feedback.errors.count %> ошибок было допущенно при сохранении:</h2>
+    <h2><%= @feedback.errors.count %>
+      <% if @feedback.errors.count>4 %>
+      ошибок было допущенно при сохранении:
+      <%else%>
+      ошибки было допущенно при сохранении:
+      <%end%>
+    </h2>
     <ul>
     <% @feedback.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
