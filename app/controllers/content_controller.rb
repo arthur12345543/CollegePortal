@@ -23,7 +23,7 @@ class ContentController < ApplicationController
       @TitleOfPage = "Редактирование страницы"
       @CustomPage= CustomPage.find(params[:id])
     else
-      redirect_to admin_path   
+      redirect_to root_path   
     end
   end
 end
