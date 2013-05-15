@@ -17,70 +17,44 @@
       <center><h1><%= image_tag root_path+"1.jpg"%></h1></center>
     </div>
   </div>
-
     <div class="wrap" >
-
-            <ul id="nav">
-              <li><%= link_to "Новости", root_path+"content/"+"1" %></li>
-              <li><%= link_to "О колледже", "#" %>
-                <ul>
-                  <li><%= link_to "История", root_path+"content/"+"2" %></li>
-                  <li><%= link_to "Цели и задачи", root_path+"content/"+"3" %></li>
-                  <li><%= link_to "Руководство", root_path+"content/"+"4" %></li>
-                  <!--<li><%= link_to "Преподавательский состав", root_path+"content/"+"5" %></li>-->
-                  <li><%= link_to "Перечень специальностей", root_path+"content/"+"6" %></li>
-                  <li><%= link_to "Краткое описание дисциплин", root_path+"content/"+"7" %></li>
-                  <li><%= link_to "Практика студентов", root_path+"content/"+"8" %></li>
-                  <li><%= link_to "Общежития", root_path+"content/"+"9" %></li>
-                  <li><%= link_to "Профком", root_path+"content/"+"10" %></li>
-                </ul>
-              </li>
-              <li><%= link_to "Абитуриенту", root_path+"content/"+"11" %>
-                <ul>
-                  <li><%= link_to "Правила приема", root_path+"content/"+"12" %></li>
-                  <li><%= link_to "Приемная комиссия", root_path+"content/"+"13" %></li>
-                  <li><%= link_to "Документы", root_path+"content/"+"14" %></li>
-                  <li><%= link_to "Оформить заявление", root_path+"content/"+"15" %></li>
-                </ul>
-              </li>
-              <li><%= link_to "Учебные материалы", uploads_path%></li>
-              <li><%= link_to "Pасписание", schedule_path %></li>
-              <li><%= link_to "Форум", forum_path %></li>
-              <li><%= link_to "Партнёры", partners_path %></li>
-              <li><%= link_to "Контакты", contacts_path %></li>
-              <% if user_signed_in? %>
-                <li><%=link_to ("Здравствуйте, "+ current_user.name+ ' ' + current_user.surname+", нажмите тут чтобы выйти"), destroy_user_session_path, :method => :delete %></li>
-              <% else %>
-                
-                <li><%=link_to "Регистрация", sign_up_path %></li>
-                <li> <a style="cursor: pointer;"onclick="document.getElementById('parent_popup').style.display='block';">Войти</a></li>
-                
-               
-              <%end%> 
-            </ul> 
-
-  
-  <!--<% if url_for(params)=="/news" %>
-    <center>
-     <!-- <div id="photoWrapper">
-        <table id="photoTable">
-          <tr>
-            <td id="photoNext">
-            <!--<a style="cursor: pointer;" onclick="BackSlide()">&lt;</a>!
-            </td>
-            <td id="photoPhoto">
-              <center><img id="LAPhoto" src="" width='320' height='240'/></center>
-              <script type="text/javascript">GoSlide();</script>
-            </td>
-            <td id="photoNext">
-              <!--<a style="cursor: pointer;" onclick="ForwardSlide()">&gt;</a>!
-            </td>
-          </tr>
-        </table>
-      </div>
-    </center>
-    <div id="BottMenu"></div>
-  <% end %>-->
+      <ul id="nav">
+        <li><%= link_to "Новости", root_path %></li>
+        <li><%= link_to "О колледже", root_path+"content/"+"1" %>
+          <ul>
+            <li><%= link_to "История", root_path+"content/"+"2" %></li>
+            <li><%= link_to "Цели и задачи", root_path+"content/"+"3" %></li>
+            <li><%= link_to "Руководство", root_path+"content/"+"4" %></li>
+            <!--<li><%= link_to "Преподавательский состав", root_path+"content/"+"5" %></li>-->
+            <li><%= link_to "Перечень специальностей", root_path+"content/"+"6" %></li>
+            <li><%= link_to "Краткое описание дисциплин", root_path+"content/"+"7" %></li>
+            <li><%= link_to "Практика студентов", root_path+"content/"+"8" %></li>
+            <li><%= link_to "Общежития", root_path+"content/"+"9" %></li>
+            <li><%= link_to "Профком", root_path+"content/"+"10" %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Абитуриенту", root_path+"content/"+"11" %>
+          <ul>
+            <li><%= link_to "Правила приема", root_path+"content/"+"12" %></li>
+            <li><%= link_to "Приемная комиссия", root_path+"content/"+"13" %></li>
+            <li><%= link_to "Документы", root_path+"content/"+"14" %></li>
+            <li><%= link_to "Оформить заявление", root_path+"content/"+"15" %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Учебные материалы", uploads_path%></li>
+        <li><%= link_to "Pасписание", schedule_path %></li>
+        <li><%= link_to "Форум", forum_path %></li>
+        <li><%= link_to "Партнёры", partners_path %></li>
+        <li><%= link_to "Контакты", contacts_path %></li>
+        <% if user_signed_in? %>
+          <li><%=link_to ("Здравствуйте, "+ current_user.name+ ' ' + current_user.surname+", нажмите тут чтобы выйти"), destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          
+          <li><%=link_to "Регистрация", sign_up_path %></li>
+          <li> <a style="cursor: pointer;"onclick="document.getElementById('parent_popup').style.display='block';">Войти</a></li>
+        <%end%> 
+      </ul> 
+  <% end %>
   </div>
   <div id="content">
   <br>
@@ -103,7 +77,6 @@
    <center>
       Разработчики:Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко, Сергей Бугаенко, Arthur Yakovlev
     </center>
-   
   </div>
 <%if !current_user %>
  <div id="parent_popup">
