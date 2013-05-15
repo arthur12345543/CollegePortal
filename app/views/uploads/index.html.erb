@@ -1,5 +1,5 @@
 <div>
-Файловое хранилище
+<h1 style="color: #000; font-style: bolder;"><center>Файловое хранилище</center></h1>
 <% if current_user && current_user.role && current_user.role.can_add_files%>
 <%= link_to 'Создать', new_upload_path %>
 <%end%>
