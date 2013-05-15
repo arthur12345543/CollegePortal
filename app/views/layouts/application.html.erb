@@ -1,22 +1,19 @@
 <%@Photo1 = Album.all%>
 <!DOCTYPE html>
-<html>
-<head>
-<title><%= @TitleOfPage %></title>
-
-<%= stylesheet_link_tag"application", :media => "all" %>
-
-<%= javascript_include_tag "application" %>
-
-<%= csrf_meta_tags %>
-<link href='http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-</head>
-<body>
-  <div id="head">
-    <div class="wrap">
-      <center><h1><%= image_tag root_path+"1.jpg"%></h1></center>
+  <html>
+    <head>
+    <title><%= @TitleOfPage %></title>
+    <%= stylesheet_link_tag"application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div id="head">
+      <div class="wrap">
+        <center><h1><%= image_tag root_path+"1.jpg"%></h1></center>
+      </div>
     </div>
-  </div>
     <div class="wrap" >
       <ul id="nav">
         <li><%= link_to "Новости", root_path %></li>
@@ -49,51 +46,49 @@
         <% if user_signed_in? %>
           <li><%=link_to ("Здравствуйте, "+ current_user.name+ ' ' + current_user.surname+", нажмите тут чтобы выйти"), destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          
           <li><%=link_to "Регистрация", sign_up_path %></li>
           <li> <a style="cursor: pointer;"onclick="document.getElementById('parent_popup').style.display='block';">Войти</a></li>
         <%end%> 
-      </ul> 
-  <% end %>
-  </div>
-  <div id="content">
-  <br>
-    <center>
-      <%= yield %>
-    </center>
-    <br>
-  </div>
-
-  <div id="footer">
-    <center>Харьковский компьютерно-технологический колледж НТУ "ХПИ" 1947 - <%= Time.now.year %></center>
-    <center>Контакты: (057) 707-68-75, (057) 707-68-37, (057) 707-67-39, info@ct-college.com.ua
-    <a href="http://vk.com/kharkivcollege" target="_blank">
-      <%= image_tag root_path+"vk.png", :width=>25, :height=>25%>
-    </a>
-    <a href="https://www.facebook.com/KharkivCollege" target="_blank">
-      <%= image_tag root_path+"fb.png", :width=>25, :height=>25%>
-    </a>
-    </center>
-   <center>
-      Разработчики:Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко, Сергей Бугаенко, Arthur Yakovlev
-    </center>
-  </div>
-<%if !current_user %>
- <div id="parent_popup">
-    <div id="popup">
-      Форма входа
-      <%= form_for("user", :url => user_session_path) do |f| %>
-	e-mail:<br>
-	<%= f.text_field :email %><br>
-	Пароль:<br>
-	<%= f.password_field :password %><br>
-	<%= f.check_box :remember_me %>Запомнить меня:<br>  
-	<%= f.submit 'Войти' %><br>
-	<p style="cursor: pointer;" onclick="document.getElementById('parent_popup').style.display='none';">Отмена</p>
-      <% end %>  
+      </ul>
     </div>
-  </div>
- <% end %>  
-</body>
+    <div id="content">
+      <br>
+      <center>
+        <%= yield %>
+      </center>
+      <br>
+    </div>
+
+    <div id="footer">
+      <center>Харьковский компьютерно-технологический колледж НТУ "ХПИ" 1947 - <%= Time.now.year %></center>
+      <center>Контакты: (057) 707-68-75, (057) 707-68-37, (057) 707-67-39, info@ct-college.com.ua
+        <a href="http://vk.com/kharkivcollege" target="_blank">
+         <%= image_tag root_path+"vk.png", :width=>25, :height=>25%>
+        </a>
+        <a href="https://www.facebook.com/KharkivCollege" target="_blank">
+         <%= image_tag root_path+"fb.png", :width=>25, :height=>25%>
+        </a>
+        </center>
+      <center>
+        Разработчики:Павел Обод, Оксана Душенковская, Никита Грицюк, Андрей Медведенко, Сергей Бугаенко, Arthur Yakovlev
+      </center>
+    </div>
+    <%if !current_user %>
+      <div id="parent_popup">
+        <div id="popup">
+          Форма входа
+          <%= form_for("user", :url => user_session_path) do |f| %>
+            e-mail:<br>
+            <%= f.text_field :email %><br>
+            Пароль:<br>
+            <%= f.password_field :password %><br>
+            <%= f.check_box :remember_me %>Запомнить меня:<br>  
+            <%= f.submit 'Войти' %><br>
+            <p style="cursor: pointer;" onclick="document.getElementById('parent_popup').style.display='none';">Отмена</p>
+          <% end %>  
+        </div>
+      </div>
+    <% end %>  
+  </body>
 </html>
 
