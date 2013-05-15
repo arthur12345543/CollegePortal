@@ -6,23 +6,26 @@ class SectionsController < ApplicationController
         if @section.save == false
           render :action => :new
         end
+      else
+        redirect_to root_path
       end
       redirect_to forum_path
       end
 
 
   def destroy
-    
     if current_user && current_user.role && current_user.role.can_admin_forum
       @Section = Section.find(params[:id])
       @Section.theme.each do|n|
-      n.post.each do|t|
-        t.destroy
+        n.post.each do|t|
+          t.destroy
+        end
+        n.destroy
       end
-     n.destroy
+      @Section.destroy
+    else
+        redirect_to root_path
     end
-    @Section.destroy
-  end
     redirect_to forum_path
  end
  end

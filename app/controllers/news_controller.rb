@@ -9,41 +9,40 @@ class NewsController < ApplicationController
   end	
   
   def new
-    @TitleOfPage = "Новая новость"
-    @news = News.new
+    if current_user && current_user.role && current_user.role.can_add_news
+      @TitleOfPage = "Новая новость"
+      @news = News.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
-    
-        if current_user && current_user.role && current_user.role.can_add_news
+    if current_user && current_user.role && current_user.role.can_add_news
       $news = News.new(params[:news])
       gmail=Gmail.new("ct.test.college@gmail.com","nanam1nanam1")
       if $news.save
-	User.all.each do |t|
-	
-	  gmail.deliver do
-	    
-	    to t.email
-	    subject "Свежие новости из жизни колледжа!"
-	    text_part do
-	      body "На нашем сайте была опубликована новая новость."
-	    end
-	    html_part do
-	      content_type 'text/html; charset=UTF-8'
-	   
-	      body ("
-		Здравствуйте, "+t.name+' '+t.surname+" . На нашем сайте была опубликована новость: “"+$news.title+"”. <br> Полный текст новости вы можете просмотреть по данному <a href='"+Rails.application.routes.url_helpers.url_for(:host => 'www.ct-college.com.ua',:controller=>:news, :action=>:show, :id=>$news.id)+"'>адресу</a>")
-	    end
-	  end
-	  
-	end
-	gmail.logout
+	      User.all.each do |t|
+	      gmail.deliver do
+	        to t.email
+	          subject "Свежие новости из жизни колледжа!"
+	          text_part do
+	           body "На нашем сайте была опубликована новая новость."
+	          end
+	          html_part do
+	            content_type 'text/html; charset=UTF-8'
+	            body ("
+		          Здравствуйте, "+t.name+' '+t.surname+" . На нашем сайте была опубликована новость: “"+$news.title+"”. <br> Полный текст новости вы можете просмотреть по данному <a href='"+Rails.application.routes.url_helpers.url_for(:host => 'www.ct-college.com.ua',:controller=>:news, :action=>:show, :id=>$news.id)+"'>адресу</a>")
+	          end
+	        end	  
+	      end
+	      gmail.logout
         redirect_to news_index_path
       else
         render :action => :new
       end
     else
-      redirect_to news_index_path
+      redirect_to root_path
     end
   end
   
@@ -56,7 +55,7 @@ class NewsController < ApplicationController
         render :action => :edit
       end
     else
-      redirect_to news_index_path   
+      redirect_to root_path   
     end
   end
   
@@ -66,14 +65,20 @@ class NewsController < ApplicationController
   end
   
    def edit
-    @TitleOfPage = "Редактирование новости"
-    @news = News.find(params[:id])
+    if current_user && current_user.role && current_user.role.can_edit_news
+      @TitleOfPage = "Редактирование новости"
+      @news = News.find(params[:id])
+    else
+      redirect_to root_path   
+    end
   end
   
   def destroy
     if current_user && current_user.role && current_user.role.can_delete_news
       @News = News.find(params[:id])
       @News.destroy
+    else
+      redirect_to root_path   
     end
     redirect_to :action => :index
   end

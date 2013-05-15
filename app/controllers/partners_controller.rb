@@ -6,8 +6,12 @@ class PartnersController < ApplicationController
   end	
   
   def new
-    @TitleOfPage = "Добавить партнёра"
-    @Partner = Partner.new
+    if current_user && current_user.role && current_user.role.can_edit_partners
+      @TitleOfPage = "Добавить партнёра"
+      @Partner = Partner.new
+    else
+      redirect_to partners_path
+    end
   end
 
   def create
@@ -23,10 +27,12 @@ class PartnersController < ApplicationController
     end
   end
   
-    def destroy
+  def destroy
     if current_user && current_user.role && current_user.role.can_edit_partners
       @Partner = Partner.find(params[:id])
       @Partner.destroy
+    else
+      redirect_to partners_path
     end
     redirect_to :action => :index
   end

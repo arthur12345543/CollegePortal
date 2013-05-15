@@ -29,14 +29,13 @@ CollegePortal::Application.routes.draw do
   get "roles/new"
   post "roles" => "roles#create"
   delete "roles" => "roles#destroy"
-
-
-
+  
   get "schedule" => "schedule#index"
   get "schedule/edit/:id" => "schedule#edit"
   get "schedule/replacement/:id" => "schedule#add_replacement"
   put "schedule/update" => "schedule#update"
   put "schedule/replacement" => "schedule#replacement_save"
+  delete "schedule/destroy" => "schedule#replacement_destroy"
   
   get "forum" => "forum#index"
   get "forum/topic/:id" => "posts#show_all"

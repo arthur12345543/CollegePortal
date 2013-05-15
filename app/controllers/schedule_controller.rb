@@ -1,9 +1,11 @@
 #encoding: utf-8
 class ScheduleController < ApplicationController
+
   def index
     @TitleOfPage = "Расписание"
     @groups=Group.all
   end
+  
   def edit
     if current_user && current_user.role && current_user.role.can_edit_schedule 
       @TitleOfPage = "Редактирование рсписания"
@@ -34,6 +36,7 @@ class ScheduleController < ApplicationController
       redirect_to root_path
     end
   end
+
   def replacement_save
     if current_user && current_user.role && current_user.role.can_edit_schedule 
       @lesson = Lesson.find(params[:id])
@@ -48,6 +51,7 @@ class ScheduleController < ApplicationController
       redirect_to root_path
     end
   end
+
   def replacement_destroy
     if current_user && current_user.role && current_user.role.can_edit_schedule 
       @lesson = Lesson.find(params[:id])

@@ -19,7 +19,11 @@ class ContentController < ApplicationController
   end
   
   def edit
-    @TitleOfPage = "Редактирование страницы"
-    @CustomPage= CustomPage.find(params[:id])
+    if current_user && current_user.role && current_user.role.can_edit_custom_pages
+      @TitleOfPage = "Редактирование страницы"
+      @CustomPage= CustomPage.find(params[:id])
+    else
+      redirect_to admin_path   
+    end
   end
 end

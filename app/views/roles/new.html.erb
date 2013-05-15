@@ -2,17 +2,22 @@
 Название роли:<br>
 <%= f.text_field :name %><br>
 Описание:<br>
-<%= f.text_area :information %><br>
+
 <%= f.check_box(:can_add_files)    %> Может добавлять файлы<br>
-<%= f.check_box(:can_delete_files) %> Может удалять файлы<br>
-<%= f.check_box(:can_add_news)     %> Может добавлять новости<br>
+<%= f.check_box(:can_delete_files)    %> Может удалять файлы<br>
+<%= f.check_box(:can_add_news)    %> Может добавлять новости<br>
 <%= f.check_box(:can_delete_news)    %> Может удалять новости<br>
-<%= f.check_box(:can_add_history)    %> Может добавлять посты истории<br>
-<%= f.check_box(:can_delete_history)    %> Может удалять разделы истории<br>
-<%= f.check_box(:can_post_forum)    %> Может писать сообщения на форуме<br>
-<%= f.check_box(:can_admin_forum)    %> Может администрировать форум<br>
-<%= f.check_box(:can_manage_albums)    %> Может управлять альбомами изображений<br>
-<%= f.check_box(:can_admin_roles)    %> Может управлять правами пользователей<br>
+<%= f.check_box(:can_post_forum)    %> Может оставлять сообщения на форуме<br>
+<%= f.check_box(:can_admin_forum)    %> Может модерировать форум<br>
+<%= f.check_box(:can_manage_albums)    %> Может администрировать альбомы фотографий<br>
+<%= f.check_box(:can_admin_roles)    %> Может настраивать политику приватности для пользователей<br>
+<%= f.check_box(:can_edit_news)    %> Может редактировать новости<br>
+<%= f.check_box(:can_edit_schedule)    %> Может редактировать расписание<br>
+<%= f.check_box(:can_edit_partners)    %> Может редактировать список партнёров<br>
+<%= f.check_box(:can_edit_custom_pages)    %> Может редактировать статичные страницы сайта<br>
+<%= f.check_box(:can_admin_feedbacks)    %> Может читать сообщения обратной связи.<br>
+
+
 
 
 

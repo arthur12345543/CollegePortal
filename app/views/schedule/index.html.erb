@@ -64,7 +64,7 @@
 <%if lesson.even_room?%> Аудитория: <%=lesson.even_room%><br><%end%>
 <%=lesson.odd_teacher%>
 <% if current_user && current_user.role && current_user.role.can_edit_schedule%>
-<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %>
+<br><%= link_to 'Изменить', :action => :edit, :id => lesson.id %>
 <br><%= link_to 'Добавить замену', :action => :add_replacement, :id => lesson.id %>
 <%end%>
 </td>
@@ -78,7 +78,7 @@
 <%if lesson.even_room?%> Аудитория: <%=lesson.even_room%><br><%end%>
 <%=lesson.even_teacher%>
 <% if current_user && current_user.role && current_user.role.can_edit_schedule%>
-<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %> 
+<br><%= link_to 'Изменить', :action => :edit, :id => lesson.id %> 
 <br><%= link_to 'Добавить замену', :action => :add_replacement, :id => lesson.id %>
 <%end%>
 </td>
@@ -89,8 +89,10 @@
 <%=lesson.replacement_room%><br>
 <%=lesson.replacement_teacher%>
 <% if current_user && current_user.role && current_user.role.can_edit_schedule%>
-<br><%= link_to 'изменить', :action => :edit, :id => lesson.id %> 
-<br><%= link_to 'изменить замену', :action => :add_replacement, :id => lesson.id %>
+<br><%= link_to 'Изменить', :action => :edit, :id => lesson.id %> 
+<br><%= link_to 'Изменить замену', :action => :add_replacement, :id => lesson.id %>
+<br><%= link_to 'Отменить замену', {:action => :replacement_destroy, :id => lesson.id },:method => :delete %>
+
 <%end%>
 <%end%>
 <%end%>
