@@ -1,0 +1,47 @@
+<% content_for :title do %>
+  <%= @photo_album.title %> | <%= Spud::Core.site_name %>
+<% end %>
+
+<% content_for :head do %>
+
+<% end %>
+
+<h1>Фото альбом: <%= @photo_album.title %></h1><br>
+
+
+  <p><%= link_to 'Назад к альбомам', photo_albums_path %>
+
+
+
+<div class="spud_photo_album_thumbnail">
+  <table border='0'>
+    <tr>
+      <% @a=0 %>
+      <% @b=false %>
+      <% @photo_album.photos.each do |photo| %>
+        <% @a=@a+1 %>
+        <td>
+          <a href="<%=photo.photo.url(:huge)%>">
+            <div class="spud_photo_album_thumbnail">
+              <figure class="imgteaser" style="background: url('<%=photo.photo.url(:medium)%>');">
+                <figcaption><strong><%= photo.title %></strong><%=photo.caption%></figcaption>
+              </figure>
+            </div>
+          </a>
+        </td>
+        <%if @a==3%>
+          <% @a=0 %>
+          <% @b=true %>
+          </tr><tr>
+        <%end%>
+      <% end %>
+      <%if @b&&@a!=0%>
+        <% while @a!=3%>
+          <%@a=@a+1%>
+          <td>s
+          </td>
+        <%end%>
+      <% end %>
+    </tr>
+  </table>
+</div>

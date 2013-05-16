@@ -67,11 +67,7 @@ CollegePortal::Application.routes.draw do
 
   resources :news
 
-  resources :albums
-  
   resources :content
-
-  resources :photos
   
   resources :uploads
   
@@ -84,8 +80,6 @@ CollegePortal::Application.routes.draw do
   resources :audiences
   
   resources :contacts
-
-  resources :lecturers
 
   resources :admins
   

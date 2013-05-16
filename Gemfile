@@ -25,7 +25,7 @@ end
 
 gem 'execjs'
 gem 'therubyracer'
-
+gem 'spud_photos'
 
 
 

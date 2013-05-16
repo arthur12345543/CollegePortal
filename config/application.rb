@@ -64,5 +64,21 @@ module CollegePortal
     config.i18n.default_locale = :ru
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    Spud::Photos.configure do |config|
+      config.base_layout = 'application'
+      config.galleries_enabled = false
+      config.base_path = 'photos'
+      config.photo_styles = {
+        :small => '200x150#',
+        :medium => '300x275#',
+        :large => '800x600#',
+        :huge => '1600x1200#'}
+      config.paperclip_storage = :filesystem #use :s3 to use s3 storage (aws gem required)
+      config.s3_credentials = "#{Rails.root}/config/s3.yml"
+      config.storage_path = ":rails_root/public/system/spud_photos/:id/:style/:basename.:extension"
+      config.storage_url = "/system/spud_photos/:id/:style/:basename.:extension"
+end
+
+
   end
 end

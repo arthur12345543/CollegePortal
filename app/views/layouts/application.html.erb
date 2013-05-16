@@ -6,7 +6,6 @@
     <%= stylesheet_link_tag"application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="head">
@@ -16,7 +15,6 @@
     </div>
     <div class="wrap" >
       <ul id="nav">
-        <li><%= link_to "Новости", root_path %></li>
         <li><%= link_to "О колледже", root_path+"content/"+"1" %>
           <ul>
             <li><%= link_to "История", root_path+"content/"+"2" %></li>
@@ -30,6 +28,7 @@
             <li><%= link_to "Профком", root_path+"content/"+"10" %></li>
           </ul>
         </li>
+        <li><%= link_to "Новости", news_index_path   %></li>        
         <li><%= link_to "Абитуриенту", root_path+"content/"+"11" %>
           <ul>
             <li><%= link_to "Правила приема", root_path+"content/"+"12" %></li>
@@ -41,6 +40,7 @@
         <li><%= link_to "Учебные материалы", uploads_path%></li>
         <li><%= link_to "Pасписание", schedule_path %></li>
         <li><%= link_to "Форум", forum_path %></li>
+        <li><%= link_to "Фото галерея", photos_path %></li>
         <li><%= link_to "Партнёры", partners_path %></li>
         <li><%= link_to "Контакты", contacts_path %></li>
         <% if user_signed_in? %>
@@ -58,7 +58,6 @@
       </center>
       <br>
     </div>
-
     <div id="footer">
       <center>Харьковский компьютерно-технологический колледж НТУ "ХПИ" 1947 - <%= Time.now.year %></center>
       <center>Контакты: (057) 707-68-75, (057) 707-68-37, (057) 707-67-39, info@ct-college.com.ua
