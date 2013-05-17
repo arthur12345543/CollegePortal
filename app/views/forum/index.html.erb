@@ -25,6 +25,6 @@
 <% end %>
 </table> 
 <% if !current_user || !current_user.role.can_post_forum%>
-Вы вошли как незарегестрированный пользователь, пожалуйста <%= link_to 'войдите', new_user_session_path  %> или <%= link_to 'зарегестрируйтесь', user_registration_path  %> для использования форума.
+Вы вошли как незарегестрированный пользователь, пожалуйста <%= link_to 'войдите', new_user_session_path  %> или <%= link_to 'зарегестрируйтесь', sign_up_path  %> для использования форума.
 <%end%>
 
