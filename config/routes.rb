@@ -83,7 +83,7 @@ CollegePortal::Application.routes.draw do
 
   resources :admins
   
-  root :to => 'news#index'
+  root :to => 'content#index', :id=>1
 
 
 end
