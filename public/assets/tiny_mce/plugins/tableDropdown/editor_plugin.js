@@ -1,0 +1,10 @@
+/*
+ *
+ * Table Dropdown Plugin for TinyMCE
+ *
+ * Copyright 2011 Cory LaViska for A Beautiful Site, LLC. — www.abeautifulsite.net
+ *
+ * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+ *
+ */
+(function(){tinymce.create("tinymce.plugins.TableDropdown",{createControl:function(e,t){switch(e){case"tableDropdown":var n=t.createSplitButton("tableDropdown",{title:"table.desc","class":"mce_table",onclick:function(){tinymce.activeEditor.execCommand("mceInsertTable")}});return n.onRenderMenu.add(function(e,t){t.add({title:"table.desc",icon:"table",cmd:"mceInsertTable"}),t.add({title:"table.del",icon:"delete_table",cmd:"mceTableDelete"}),t.addSeparator(),t.add({title:"table.row_desc",icon:"row_props",cmd:"mceTableRowProps"}),t.add({title:"table.cell_desc",icon:"cell_props",cmd:"mceTableCellProps"}),t.addSeparator(),t.add({title:"table.row_before_desc",icon:"row_before",cmd:"mceTableInsertRowBefore"}),t.add({title:"table.row_after_desc",icon:"row_after",cmd:"mceTableInsertRowAfter"}),t.add({title:"table.delete_row_desc",icon:"delete_row",cmd:"mceTableDeleteRow"}),t.addSeparator(),t.add({title:"table.col_before_desc",icon:"col_before",cmd:"mceTableInsertColBefore"}),t.add({title:"table.col_after_desc",icon:"col_after",cmd:"mceTableInsertColAfter"}),t.add({title:"table.delete_col_desc",icon:"delete_col",cmd:"mceTableDeleteCol"}),t.addSeparator(),t.add({title:"table.merge_cells_desc",icon:"merge_cells",cmd:"mceTableMergeCells"}),t.add({title:"table.split_cells_desc",icon:"split_cells",cmd:"mceTableSplitCells"}),e.editor.onNodeChange.add(function(e,t,n,r){var i=i=e.controlManager.controls[e.id+"_tableDropdown"].menu.items,s=e.dom.getParent(e.selection.getStart(),"td,th,caption");s&&s.nodeName==="CAPTION"&&(s=0),tinymce.each(i,function(e){if(e.settings.icon==="table")return;e.setDisabled(!s)})}),setTimeout(function(){e.editor.nodeChanged()},50)}),n}return null}}),tinymce.PluginManager.add("tableDropdown",tinymce.plugins.TableDropdown)})();

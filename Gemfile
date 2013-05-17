@@ -16,12 +16,9 @@ gem 'mime'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'paperclip'
 
-group :production do
- gem 'pg'
-end
-group :development do
- gem 'sqlite3'
-end
+
+gem 'sqlite3'
+
 
 gem 'execjs'
 gem 'therubyracer'
